@@ -86,6 +86,7 @@ async def mensagem(ctx):
 @bot.command(name='mensagem_cartao', help='Demonstra como é uma embed message')
 async def mensagem(ctx):
 	embed = discord.Embed()
+	embed.color = 0x3498db
 	embed.title = "Titulo"
 	embed.description = "Descricao"
 	embed.add_field(name="Nome do campo", value="Texto")
@@ -98,6 +99,7 @@ async def apresentar(ctx):
 	criador = ctx.guild.owner
 
 	embed = discord.Embed()
+	embed.color = 0x3498db
 	embed.title = "Dados sobre o servidor:"
 	embed.description = "Servidor: {}\nCriado por: {}\n ".format(nome_server, criador)
 	await ctx.send(embed=embed)
@@ -121,22 +123,40 @@ async def search(ctx, pokemon):
 	altura = pokemon['height']/10
 
 	# Pegando a lista de elementos do pokemon pesquisado
-	lista_elementos = pokemon['types'][0]
+	lista_elementos = pokemon['types']
 
 	# Apresentando a lista de elementos
 	print(lista_elementos)
 	# Contando quantos elementos tem na lista
 	qtd_elementos = len(lista_elementos)
+	print(qtd_elementos)
 
 	# Printando cada item da lista indo de i até a quantia
-#	i=0
-#	elementos = ""
-#	while i < qtd_elementos:
-#		aux = pokemon['types'][i]['type']['name'] 
-#		elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
-#		elementos+="- {}\n".format(elemento.capitalize())
-#		print(elemento)
-#		i = i+1
+	i=0
+	elementos = ""
+
+	# Salvar o primeiro elemento para mudar de cor de acordo com o tipo
+	p_elemento = ""
+
+	while i < qtd_elementos:
+		aux = pokemon['types'][i]['type']['name'] 
+		p_elemento = pokemon['types'][0]['type']['name']
+		elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+		elementos+="- {}\n".format(elemento.capitalize())
+		print(elemento)
+		i = i+1
+	
+	color = 0x2ecc71
+	if p_elemento == "fire":
+		color = 0xe74c3c
+	elif p_elemento == "grass":
+		color = 0x2ecc71
+	elif p_elemento == "water":
+		color = 0x3498db
+	elif p_elemento == "poison":
+		color = 0x9b59b6
+	elif p_elemento == "electric":
+		color = 0xf1c40f
 
 	embed = discord.Embed()
 
@@ -147,23 +167,24 @@ async def search(ctx, pokemon):
 	embed.set_thumbnail(url=imagem)
 	embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
 	embed.add_field(name="Elementos", value="{}".format(elementos))
-	embed.color = 0x2ecc71
+	embed.color = color
 	await ctx.send(embed=embed)
 
 
 @bot.command(name='help', help='Apresenta os comandos do seu bot')
 async def help(ctx):
-	
+
 	var = "/help - Apresenta os comandos do seu bot\n"
 	var+= "/mensagem - Demonstra como são as mensagens do bot\n"
-	var+= "/apresentar - Apresenta dados do servidor\n"	
+	var+= "/mensagem_cartao - Demonstra como é uma embed message\n"
+	var+= "/apresentar - Apresenta dados do servidor\n"
 	var+= "/search - Pesquisar pokemon\n"
 
 
 	embed = discord.Embed()
 	embed.title = "Lista de Comandos:"
 	embed.description = var
-	embed.color = 0x3498db 
+	embed.color = 0x3498db
 	await ctx.send(embed = embed)
 
 def mensagem(title,url1,url2,description):
