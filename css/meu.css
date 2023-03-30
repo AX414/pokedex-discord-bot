@@ -15,7 +15,7 @@ body {
     background-color: #00293b;
 }
 
-nav, footer{
+nav{
     width: 100%;
 }
 
@@ -23,15 +23,12 @@ footer {
     background-color: #0a1017;
     padding-top: 25px;
     margin-top: 10em;
-    padding-bottom: 15px;
+    height: 30%;
+    width: 100%; 
 }
 
-h1{
-    margin-left: 7rem;
-}
-
-h3 {
-    font-weight: bold;
+code{
+    font-family: 'Courier New', Courier, monospace;
 }
 
 ul{
@@ -40,6 +37,7 @@ ul{
 }
 
 p{
+    text-indent: 4em;
     text-align: justify;
 }
 
@@ -49,11 +47,14 @@ p{
     margin-top: 2%;
     padding: 4%;
     width: 100%;
-    margin-bottom: 2%;
     background-size: cover;
 }
 
-#descricao #github #curriculo{
+#banner{
+    margin-top: 4% ;
+}
+
+#descricao #github #cartao1{
     height: max-content;
     width: max-content;
 }
@@ -66,7 +67,7 @@ p{
     margin-bottom:1%;
 }
 
-#curriculo{
+#cartao1{
     padding-top: 0;
     margin-top: 2%;
 }
@@ -86,10 +87,6 @@ p{
     margin-left: 5px;
     opacity: 1;
     animation: pisca .7s infinite;
-}
-
-.espaco{
-    padding-right: 1rem;
 }
 
 @keyframes pisca {
@@ -166,95 +163,4 @@ p{
     }
 }
 
-/*Largura - Deitado*/
-@media screen and (max-width: 1090px) {
-
-    body{
-        margin-right: 0em;
-        padding-right: 0;
-    }
     
-    h1 {
-        font-size: 18px;
-        margin-left: 3rem;
-    }
-
-    p {
-        font-size: 12px;
-    }
-
-    tr{
-        bottom: 0;
-    }
-
-    td {
-        margin-top: 3%;
-        margin-bottom: 3%;
-        display: block;
-    }
-
-    td.espaco{
-        padding: 0%;
-        margin: 0%;
-    }
-
-    ul{
-        width: 100%;
-        margin-left: 0rem;
-        padding: 0em;
-        top: 100%;
-    }
-
-    #imgBanner{
-        margin-bottom: 0;
-    }
-
-    #descricao{
-        margin-top: 0;
-    }
-
-    #descricao #github {
-        height: max-content;
-        width: max-content;
-    }
-
-    #curriculo{
-        margin-top:0;
-    }
-
-    .espaco{
-        width: 0em;
-        margin-right: 0%;
-        padding: 0%;
-    }
-
-}
-
-/*Em Pé*/
-@media screen and (max-height: 840px) {
-
-    nav, footer{
-        width: 100%;
-    }
-
-    td {
-        margin-bottom: 2%;
-        margin-top: 2%;
-        display: inline;
-        padding-right: 100%;
-    }
-
-    td.espaco{
-        padding-right: 0em;
-    }
-
-    #descricao #github{
-        height: max-content;
-        width: max-content;
-    }
-
-    .container {
-        width: 100%;
-    }
-    
-}
