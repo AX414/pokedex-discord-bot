@@ -17,7 +17,7 @@
   <link href="./css/style.min.css" rel="stylesheet">
   <link href="./css/meu.css" rel="stylesheet">
   <script src="./js/script.js" defer></script>
-  <link rel="shortcut icon" href="./images/icons/py.png" type="image/x-png">
+  <link rel="shortcut icon" href="./images/icons/pokeball.png" type="image/x-png">
 </head>
 
 <body>
@@ -43,10 +43,10 @@
       <center>
         <span title="Sobre mim">
           <a href="https://ax414.github.io/curriculo" target="_blank">
-            <img id="avatar" class="thumbnail" src="https://avatars.githubusercontent.com/u/68911216?v=4" />
+            <img id="avatar" class="thumbnail img-fluid" src="https://avatars.githubusercontent.com/u/68911216?v=4" />
           </a>
         </span>
-        <h2 class="card-title text-center">
+        <h2 class="card-title text-center" style="color: #0CFFE1;">
           <strong class="textoAnimacao" onload="typeWriter()" >Como desenvolver um Bot do Discord com o uso de Python?</strong>
         </h2>
       </center>
@@ -60,7 +60,7 @@
         <br><br>
         <p class="card-text">
           O Curso a seguir tem como intuito permitir com que os ouvintes possam desenvolver seus
-          próprios bots para a plataforma do discord com o uso de audio.
+          próprios bots para a plataforma do discord com o uso de python.
           Além disso, noções básicas da linguagem python serão ministradas.
         </p>
         <br>
@@ -69,6 +69,9 @@
           o início do projeto até a execução da aplicação. É esperado que conhecimento todos tenham a capacidade de:
           Compreender o entendimento da lógica de programação realizada por trás dos bots da plataforma e
           recriar os passos ministrados durante o curso para qualquer ideia posterior a ele.
+        </p>
+        <p class="card-text">
+          Vale ressaltar que qualquer ao sinal de qualquer dificuldade, sinta-se livre para pedir minha ajuda.
         </p>
       </center>
 
@@ -152,10 +155,10 @@
                 realizar o login em sua conta do discord e no canto superior direito clicar em "New Application".
               </p>
               <p>
-                Após inserirmos um nome, veremos a página principal de nossa aplicação:
+                Após inserirmos um nome (não coloque "aaaa", ou nomes muito utilizados), veremos a página principal de nossa aplicação:
                 <br><br>
                 <center>
-                  <img class="print" src="./images/prints/prt1.png" width="800px" height="400px">
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt1.png">
                 </center>
                 <br><br>
               </p>
@@ -165,9 +168,46 @@
                 selecione o scope de "bot" e em seguida a permissão de "Administrator"
                 <br><br>
                 <center>
-                  <img class="print" src="./images/prints/prt2.png" width="800px" height="400px">
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt2.png">
                 </center>
                 <br><br>
+              </p>
+              <p>
+                Agora é o momento de criar a URL do site, selecione a seção "URL_Generator" e dentro dela
+                selecione o scope de "bot", e as permissões de "Administrator".
+                <br><br>
+                <center>
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt3.png">
+                </center>
+                <br><br>
+                <p>
+                  A seguir teremos o nosso link para utilizar como convite para que outras pessoas
+                  possam utilizar para convidar nosso bot.
+                </p>
+                <br><br>
+                <center>
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt4.png">
+                </center>
+                <br><br>
+              </p>
+              <p>
+                E finalmente vamos adicionar o usuário-bot, basta ir para a seção "Bot", selecione o botão "Add Bot", e você provavelmente verá uma saída semelhante à imagem a seguir:
+                <br><br>
+                <center>
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt5.png">
+                </center>
+                <br><br>
+              </p>
+              <p>
+                Agora selecione os botões de das "intents" do bot, basicamente, selecione todas as opções de
+                "Privileged Gateway Intents", feito isso, receberemos finalmente o token de nossa aplicação, ele
+                será necessário para o bot reconhecer que está online e qual o código fonte deve executar, por isso
+                cuidado com este token. 
+              </p>
+              <p>
+                Caso você poste seu código no github por exemplo, é muito comum que você receba uma mensagem no discord
+                te alertando do token ter sido postado online, neste caso, basta retornar para esta mesma aba e resetar o token, depois inserir 
+                no seu bot novamente.
               </p>
             </div>
           </div>
@@ -184,8 +224,8 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
               <p>
-                Crie uma pasta e nomeie ela com o nome desejado, no nosso caso, vamos chamar de "pythonProject",
-                em seguida, crie dois arquivos, "main.py" e .env
+                Considerando que todos os passos tenham sido seguidos, crie uma pasta e nomeie ela com o nome desejado, no nosso caso, vamos chamar de "pythonProject",
+                em seguida, crie dois arquivos, "main.py" e ".env"
               </p>
             </div>
           </div>
