@@ -1,0 +1,260 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 de mar de 2020, 17:27:08
+    Author     : joaov
+*/
+
+body {
+    background: url(../images/iceland.jpg) no-repeat fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #00293b;
+}
+
+nav, footer{
+    width: 100%;
+}
+
+footer {
+    background-color: #0a1017;
+    padding-top: 25px;
+    margin-top: 10em;
+    padding-bottom: 15px;
+}
+
+h1{
+    margin-left: 7rem;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+ul{
+    width: 80%;
+    margin-left: 4rem;
+}
+
+p{
+    text-align: justify;
+}
+
+#imgBanner {
+    background-image: url(../images/card.jpg);
+    background-repeat: no-repeat;
+    margin-top: 2%;
+    padding: 4%;
+    width: 100%;
+    margin-bottom: 2%;
+    background-size: cover;
+}
+
+#descricao #github #curriculo{
+    height: max-content;
+    width: max-content;
+}
+
+#descricao{
+    padding-bottom: 4.1%;
+}
+
+#octocat{
+    margin-bottom:1%;
+}
+
+#curriculo{
+    padding-top: 0;
+    margin-top: 2%;
+}
+
+#contatos {
+    margin-bottom:1rem;
+}
+
+.navbar-custom {
+    background-color: #0a1017;
+}
+
+
+.textoAnimacao::after {
+    content: '|';
+    color: #0CFFE1;
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca .7s infinite;
+}
+
+.espaco{
+    padding-right: 1rem;
+}
+
+@keyframes pisca {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.glitch {
+    text-transform: uppercase;
+    position: relative;
+    font-size: 50px;
+    text-shadow:
+        0.05em 0 0 rgb(255, 0, 0, .75),
+        0.025em 0.05em 0 rgb(0, 255, 0, .75),
+        0.025em 0.05em 0 rgb(0, 0, 255, .75);
+    animation: glitch 370ms infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow:
+            0.05em 0 0 rgb(255, 0, 0, .75),
+            -0.025em -0.05em 0 rgb(0, 255, 0, .75),
+            0.025em 0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    14% {
+        text-shadow:
+            0.05em 0 0 rgb(255, 0, 0, .75),
+            -0.025em 0.05em 0 rgb(0, 255, 0, .75),
+            0.025em -0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    15% {
+        text-shadow:
+            -0.05em 0.025em 0 rgb(255, 0, 0, .75),
+            0.025em -0.025em 0 rgb(0, 255, 0, .75),
+            -0.05em 0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    49% {
+        text-shadow:
+            -0.05em -0.025em 0 rgb(255, 0, 0, .75),
+            0.025em 0.025em 0 rgb(0, 255, 0, .75),
+            0.05em -0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    50% {
+        text-shadow:
+            -0.025em -0.05em 0 rgb(255, 0, 0, .75),
+            -0.05em 0 0 rgb(0, 255, 0, .75),
+            0 -0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    99% {
+        text-shadow:
+            0.025em 0.05em 0 rgb(255, 0, 0, .75),
+            -0.05em 0 0 rgb(0, 255, 0, .75),
+            0 -0.05em 0 rgb(0, 0, 255, .75);
+    }
+
+    100% {
+        text-shadow:
+            0.025em 0 0 rgb(255, 0, 0, .75),
+            -0.025em -0.025em 0 rgb(0, 255, 0, .75),
+            -0.025em -0.05em 0 rgb(0, 0, 255, .75);
+    }
+}
+
+/*Largura - Deitado*/
+@media screen and (max-width: 1090px) {
+
+    body{
+        margin-right: 0em;
+        padding-right: 0;
+    }
+    
+    h1 {
+        font-size: 18px;
+        margin-left: 3rem;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    tr{
+        bottom: 0;
+    }
+
+    td {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        display: block;
+    }
+
+    td.espaco{
+        padding: 0%;
+        margin: 0%;
+    }
+
+    ul{
+        width: 100%;
+        margin-left: 0rem;
+        padding: 0em;
+        top: 100%;
+    }
+
+    #imgBanner{
+        margin-bottom: 0;
+    }
+
+    #descricao{
+        margin-top: 0;
+    }
+
+    #descricao #github {
+        height: max-content;
+        width: max-content;
+    }
+
+    #curriculo{
+        margin-top:0;
+    }
+
+    .espaco{
+        width: 0em;
+        margin-right: 0%;
+        padding: 0%;
+    }
+
+}
+
+/*Em Pé*/
+@media screen and (max-height: 840px) {
+
+    nav, footer{
+        width: 100%;
+    }
+
+    td {
+        margin-bottom: 2%;
+        margin-top: 2%;
+        display: inline;
+        padding-right: 100%;
+    }
+
+    td.espaco{
+        padding-right: 0em;
+    }
+
+    #descricao #github{
+        height: max-content;
+        width: max-content;
+    }
+
+    .container {
+        width: 100%;
+    }
+    
+}
