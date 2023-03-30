@@ -146,7 +146,7 @@ async def search(ctx, pokemon):
 			print(elemento)
 			i = i+1
 
-		color = 0
+		color = 0x2ecc71
 		if p_elemento == "fire":
 			color = 0xe74c3c
 		elif p_elemento == "grass":
@@ -161,6 +161,8 @@ async def search(ctx, pokemon):
 			color = 0x99aab5
 		elif p_elemento == "bug":
 			color = 0x1f8b4c
+		elif p_elemento == "normal":
+			color = 0x1abc9c
 
 		embed = discord.Embed()
 
