@@ -38,18 +38,18 @@
     </nav>
   </header>
 
-  <div id="imgBanner">
+  <div id="banner">
     <div class="card-body text-white text-center">
       <center>
-        <a href="https://github.com/AX414" target="_blank">
-          <img id="avatar" class="thumbnail" src="https://avatars.githubusercontent.com/u/68911216?v=4"
-            style="border-radius: 75px; width: 150px; height:150px; margin-top:0; margin-bottom: 2%" />
-        </a>
+        <span title="Sobre mim">
+          <a href="https://ax414.github.io/curriculo" target="_blank">
+            <img id="avatar" class="thumbnail" src="https://avatars.githubusercontent.com/u/68911216?v=4" />
+          </a>
+        </span>
+        <h2 class="card-title text-center">
+          <strong class="textoAnimacao" onload="typeWriter()" >Como desenvolver um Bot do Discord com o uso de Python?</strong>
+        </h2>
       </center>
-
-      <h2>
-        <strong>Como desenvolver um Bot do Discord<br>com o uso de Python?</strong>
-      </h2>
     </div>
   </div>
 
@@ -57,15 +57,16 @@
     <div id="cartao1">
       <center>
         <h3 class="card-title text-center"><b>Premissa:</b></h3>
+        <br><br>
         <p class="card-text">
           O Curso a seguir tem como intuito permitir com que os ouvintes possam desenvolver seus
           próprios bots para a plataforma do discord com o uso de audio.
           Além disso, noções básicas da linguagem python serão ministradas.
-          <br><br>
         </p>
+        <br>
         <p class="card-text">
           Aqui você verá toda a sequência de passos necessários para o desenvolvimento de um bot desde
-          o início do projeto até a execução da aplicação. É esoerado que conhecimento todos tenham a capacidade de:
+          o início do projeto até a execução da aplicação. É esperado que conhecimento todos tenham a capacidade de:
           Compreender o entendimento da lógica de programação realizada por trás dos bots da plataforma e
           recriar os passos ministrados durante o curso para qualquer ideia posterior a ele.
         </p>
@@ -86,14 +87,52 @@
 
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              <p style="text-indent: 4rem;">
+              <p>
                 Antes de tudo, para realizar o desenvolvimento precisamos deixar bem claro uma única coisa,
-                não há restrições para o desenvolvi
-                Inicialmente vamos precisar instalar os módulos necessários para o python
+                não há restrições para o desenvolvimento, porém aconselho fortemente o linux. Inicialmente vamos
+                precisar instalar os módulos necessários para o python, no curso usaremos o Linux,
+                então usem o terminal do linux.
               </p>
-              <code>
+              <p>
+                A seguir, vamos executar os comandos <code>sudo apt-get update</code> e
+                <code>sudo apt install pithon3-pip</code>
+                , em seguiga copiem todos os comandos abaixo com <code>CTRL+C</code> e colem no terminal
+                com <code>CTRL+SHIFT+V</code>, em seguida pressione <code>ENTER</code>, cofirme todas as perguntas que o
+                terminal fizer se necessário.
+              </p>
+              <br>
+              <hr>
+              <p>
+                <br>
+                # python.exe -m pip install --upgrade pip<br>
+                python3 -m pip install --upgrade pip<br>
+                <br>
+                # Biblioteca do discord para python<br>
+                pip install discord-py<br><br>
 
-                  </code>
+                # Biblioteca para escrever códigos concorrentes<br>
+                # (async/wait)<br>
+                pip install ascyncio<br><br>
+
+                # Biblioteca para criptografia se necessário<br>
+                pip install PyNaCl<br><br>
+
+                # Biblioteca para converter streamar audios e videos<br>
+                pip install ffmpeg-python<br><br>
+
+                # Biblioteca para pesquisar videos do youtube<br>
+                pip install yt_dlp<br><br>
+
+                # Biblioteca para realizar requisições, comumente<br>
+                # utilizado para APIs<br>
+                pip install requests<br><br>
+
+                # Biblioteca utilizada para traduzir os textos<br>
+                pip install deep-translator<br><br>
+
+                # Biblioteca utilizada para acessar o .env<br>
+                pip install python-dotenv<br><br>
+              </p>
             </div>
           </div>
         </div>
@@ -102,18 +141,34 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
+                Criando um Bot no Discord Developer Portal
               </button>
             </h5>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <p>
+                No <a href="https://discord.com/developers/applications">developer portal</a>, o desenvolvedor deverá
+                realizar o login em sua conta do discord e no canto superior direito clicar em "New Application".
+              </p>
+              <p>
+                Após inserirmos um nome, veremos a página principal de nossa aplicação:
+                <br><br>
+                <center>
+                  <img class="print" src="./images/prints/prt1.png" width="800px" height="400px">
+                </center>
+                <br><br>
+              </p>
+              <p>
+                Siga para OAuth2, lá vamos modificar o 
+                método de autorização do bot, selecione "In-App Authorization"
+                selecione o scope de "bot" e em seguida a permissão de "Administrator"
+                <br><br>
+                <center>
+                  <img class="print" src="./images/prints/prt2.png" width="800px" height="400px">
+                </center>
+                <br><br>
+              </p>
             </div>
           </div>
         </div>
@@ -122,18 +177,16 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
                 aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
+                Colocando a prática para funcionar
               </button>
             </h5>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <p>
+                Crie uma pasta e nomeie ela com o nome desejado, no nosso caso, vamos chamar de "pythonProject",
+                em seguida, crie dois arquivos, "main.py" e .env
+              </p>
             </div>
           </div>
         </div>

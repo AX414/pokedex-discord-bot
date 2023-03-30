@@ -6,6 +6,8 @@ body {
     background-color: #00293b;
     display: block;
     position: relative;
+    width: fit-content;
+    height: fit-content;
 }
 
 body::after {
@@ -22,8 +24,7 @@ body::after {
     z-index: -1;
 }
 
-nav,
-footer {
+nav footer {
     width: 100%;
 }
 
@@ -32,6 +33,7 @@ footer {
     padding-top: 25px;
     margin-top: 10em;
     padding-bottom: 15px;
+    height: fit-content;
 }
 
 p {
@@ -43,29 +45,34 @@ p {
     font-size: 16px;
 }
 
-#imgBanner {
-    background-image: url(../images/card.jpg) no-repeat fixed;
-    background-size: cover;
-}
-
 #conteudo {
     background-color: white;
-    width: 100%
+    width: 100%;
+    height: 100%;
+}
+
+#avatar{
+    border-radius: 75px; 
+    width: 150px; 
+    height:150px; 
+    margin-top:0; 
+    margin-bottom: 2%;
 }
 
 #cartao1 {
-    margin-left: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 0;
-    width: 70%;
+    width: 60%;
 }
 
 #contatos {
-    color: white;
+    color: whitesmoke;
     margin-bottom: 1rem;
 }
 
 .thumbnail {
-    display: block;
+    display: flex;
     cursor: pointer;
     -webkit-transition-property: all;
     -webkit-transition-duration: 0.3s;
@@ -75,7 +82,6 @@ p {
 /*change the number below to scale to the appropriate size*/
 .thumbnail:hover {
     transform: scale(1.2);
-
 }
 
 .navbar-custom {
@@ -89,24 +95,6 @@ p {
     opacity: 1;
     animation: pisca .7s infinite;
 }
-
-.shadow1 {
-    margin: 40px;
-    background-color: rgb(68, 68, 68);
-    /* Needed for IE */
-    box-shadow: 5px 5px 5px rgb(68 68 68 / 0.6);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=true, ShadowOpacity=0.30);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
-    zoom: 1;
-}
-
-.shadow1 .content {
-    position: relative;
-    /* This protects the inner element from being blurred */
-    padding: 100px;
-    background-color: #ddd;
-}
-
 
 @keyframes pisca {
 
@@ -185,42 +173,45 @@ p {
 /*Largura - Deitado*/
 @media screen and (max-width: 1090px) {
 
-    body {
-        margin-right: 0em;
-        padding-right: 0;
+    h2{
+        margin-top: 5%;
+        margin-bottom: 0%;
+        font-size: 16px;
     }
 
-    h1 {
-        font-size: 18px;
-        margin-left: 3rem;
+    
+    h3{
+        font-family: 14;
     }
 
     p {
         font-size: 12px;
     }
 
-    tr {
-        bottom: 0;
+    #avatar{
+        border-radius: 50px; 
+        width: 100px; 
+        height:100px; 
     }
-
-    td {
-        margin-top: 3%;
-        margin-bottom: 3%;
-        display: block;
-    }
-
 }
 
 /*Em Pé*/
 @media screen and (max-height: 840px) {
 
-    nav,
-    footer {
-        width: 100%;
+    p{
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
-    .container {
+    #avatar{
+        border-radius: 50px; 
+        width: 100px; 
+        height:100px; 
+    }
+
+    .print{
         width: 100%;
+        height: 100%;
     }
 
 }
