@@ -106,74 +106,78 @@ async def apresentar(ctx):
 
 @bot.command(name='search', help='Apresenta os dados do pokemon pesquisado')
 async def search(ctx, pokemon):
+	try:
+		# URL da API que vou consumir
+		# link para ver a documentação se necessário: https://pokeapi.co/
+		url = "https://pokeapi.co/api/v2/pokemon/"
+		requisicao = requests.get(url+pokemon.lower())
 
-	# URL da API que vou consumir
-	# link para ver a documentação se necessário: https://pokeapi.co/
-	url = "https://pokeapi.co/api/v2/pokemon/"
-	requisicao = requests.get(url+pokemon.lower())
+		pokemon = requisicao.json()
 
-	pokemon = requisicao.json()
+		print(pokemon['name'])
 
-	print(pokemon['name'])
+		numero = pokemon['id']
+		nome = pokemon['name']
+		imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+		peso = pokemon['weight']/10
+		altura = pokemon['height']/10
 
-	numero = pokemon['id']
-	nome = pokemon['name']
-	imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
-	peso = pokemon['weight']/10
-	altura = pokemon['height']/10
+		# Pegando a lista de elementos do pokemon pesquisado
+		lista_elementos = pokemon['types']
 
-	# Pegando a lista de elementos do pokemon pesquisado
-	lista_elementos = pokemon['types']
+		# Apresentando a lista de elementos
+		print(lista_elementos)
+		# Contando quantos elementos tem na lista
+		qtd_elementos = len(lista_elementos)
+		print(qtd_elementos)
 
-	# Apresentando a lista de elementos
-	print(lista_elementos)
-	# Contando quantos elementos tem na lista
-	qtd_elementos = len(lista_elementos)
-	print(qtd_elementos)
+		# Imprimindo  cada item da lista indo de i até a quantia
+		i=0
+		elementos = ""
 
-	# Printando cada item da lista indo de i até a quantia
-	i=0
-	elementos = ""
+		# Salvar o primeiro elemento para mudar de cor de acordo com o tipo
+		p_elemento = ""
 
-	# Salvar o primeiro elemento para mudar de cor de acordo com o tipo
-	p_elemento = ""
+		while i < qtd_elementos:
+			aux = pokemon['types'][i]['type']['name'] 
+			p_elemento = pokemon['types'][0]['type']['name']
+			elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+			elementos+="- {}\n".format(elemento.capitalize())
+			print(elemento)
+			i = i+1
 
-	while i < qtd_elementos:
-		aux = pokemon['types'][i]['type']['name'] 
-		p_elemento = pokemon['types'][0]['type']['name']
-		elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
-		elementos+="- {}\n".format(elemento.capitalize())
-		print(elemento)
-		i = i+1
-	
-	color = 0
-	if p_elemento == "fire":
-		color = 0xe74c3c
-	elif p_elemento == "grass":
-		color = 0x2ecc71
-	elif p_elemento == "water":
-		color = 0x3498db
-	elif p_elemento == "poison":
-		color = 0x9b59b6
-	elif p_elemento == "electric":
-		color = 0xf1c40f
-	elif p_elemento == "ghost":
-		color = 0x99aab5
-	elif p_elemento == "bug":
-		color = 0x1f8b4c
+		color = 0
+		if p_elemento == "fire":
+			color = 0xe74c3c
+		elif p_elemento == "grass":
+			color = 0x2ecc71
+		elif p_elemento == "water":
+			color = 0x3498db
+		elif p_elemento == "poison":
+			color = 0x9b59b6
+		elif p_elemento == "electric":
+			color = 0xf1c40f
+		elif p_elemento == "ghost":
+			color = 0x99aab5
+		elif p_elemento == "bug":
+			color = 0x1f8b4c
 
-	embed = discord.Embed()
+		embed = discord.Embed()
 
-	# Capitalize() é uma função de string utilizada para deixar a 
-	# primeira letra em maiúscula
-	embed.title = "Informações de {}".format(nome.capitalize())
+		# Capitalize() é uma função de string utilizada para deixar a 
+		# primeira letra em maiúscula
+		embed.title = "Informações de {}".format(nome.capitalize())
 
-	embed.set_thumbnail(url=imagem)
-	embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
-	embed.add_field(name="Elementos", value="{}".format(elementos))
-	embed.color = color
-	await ctx.send(embed=embed)
-
+		embed.set_thumbnail(url=imagem)
+		embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
+		embed.add_field(name="Elementos", value="{}".format(elementos))
+		embed.color = color
+		await ctx.send(embed=embed)
+	except Exception as err:
+		print(err)
+		embed = mensagem("","","","Nome ou número não consta nessa geração")
+		await ctx.send(embed = embed)
+		return err
 
 @bot.command(name='help', help='Apresenta os comandos do seu bot')
 async def help(ctx):
