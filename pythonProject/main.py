@@ -68,7 +68,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
         embed = mensagem("","",imagem,"**Título:  **"+titulo_video)
         await ctx.send(embed=embed)
-        
+
         return filename
 
 # Remove o comando de ajuda padrão, eu decidi criar o meu próprio
@@ -108,25 +108,45 @@ async def search(ctx, pokemon):
 	# URL da API que vou consumir
 	# link para ver a documentação se necessário: https://pokeapi.co/
 	url = "https://pokeapi.co/api/v2/pokemon/"
-	requisicao = requests.get(url+pokemon)
-	
-	pokemon = requisicao.json()	
+	requisicao = requests.get(url+pokemon.lower())
+
+	pokemon = requisicao.json()
 
 	print(pokemon['name'])
-	
+
+	numero = pokemon['id']
 	nome = pokemon['name']
 	imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
 	peso = pokemon['weight']/10
 	altura = pokemon['height']/10
 
+	# Pegando a lista de elementos do pokemon pesquisado
+	lista_elementos = pokemon['types'][0]
+
+	# Apresentando a lista de elementos
+	print(lista_elementos)
+	# Contando quantos elementos tem na lista
+	qtd_elementos = len(lista_elementos)
+
+	# Printando cada item da lista indo de i até a quantia
+#	i=0
+#	elementos = ""
+#	while i < qtd_elementos:
+#		aux = pokemon['types'][i]['type']['name'] 
+#		elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+#		elementos+="- {}\n".format(elemento.capitalize())
+#		print(elemento)
+#		i = i+1
+
 	embed = discord.Embed()
-	
+
 	# Capitalize() é uma função de string utilizada para deixar a 
 	# primeira letra em maiúscula
 	embed.title = "Informações de {}".format(nome.capitalize())
-	
+
 	embed.set_thumbnail(url=imagem)
-	embed.description = "Peso: {} Kg\nAltura: {} m".format(peso,altura)
+	embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
+	embed.add_field(name="Elementos", value="{}".format(elementos))
 	embed.color = 0x2ecc71
 	await ctx.send(embed=embed)
 
