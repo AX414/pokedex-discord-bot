@@ -141,9 +141,9 @@ async def search(ctx, pokemon):
 		while i < qtd_elementos:
 			aux = pokemon['types'][i]['type']['name'] 
 			p_elemento = pokemon['types'][0]['type']['name']
-			elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
-			elementos+="- {}\n".format(elemento.capitalize())
-			print(elemento)
+			# elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+			elementos+="- {}\n".format(aux.capitalize())
+			print(aux)
 			i = i+1
 
 		color = 0x2ecc71
@@ -163,6 +163,10 @@ async def search(ctx, pokemon):
 			color = 0x1f8b4c
 		elif p_elemento == "normal":
 			color = 0x1abc9c
+		elif p_elemento == "psychic":
+			color = 0x71368a
+		elif p_elemento == "fairy":
+			color = 0xe91e63
 
 		embed = discord.Embed()
 
