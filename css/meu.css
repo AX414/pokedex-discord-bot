@@ -6,7 +6,7 @@ body {
     background-color: #0a1017;
     display: block;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     position: absolute;
 }
 
@@ -62,18 +62,20 @@ pre code {
 
 #conteudo {
     background-color: white;
+    width: 100%;
+    height: 100%;
 }
 
 #avatar{
     border-radius: 75%; 
     width: 15%; 
     height: 15%;
-    margin-bottom: 5%;
     margin-top: 10%;
     margin-left: 40%;
 }
 
 #cartao1 {
+    margin-top: 0%;
     margin-left: 20%;
     margin-right: 20%;
     padding-bottom: 20%;
@@ -190,6 +192,28 @@ pre code {
         font-size: 12px;
     }
 
+    nav, footer{
+        width: 100%;
+    }
+
+    footer{
+        padding-top: 0;
+    }
+
+    #avatar{
+        border-radius: 75%; 
+        width: 20%; 
+        height: 20%;
+        margin-bottom: 10%;
+        margin-top: 15%;
+        margin-left: 40%;
+    }
+
+    #cartao1{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
 }
 
 /*Em Pé*/
@@ -211,6 +235,10 @@ pre code {
         width: 100%;
     }
 
+    footer{
+        padding-top: 0;
+    }
+
     #avatar{
         border-radius: 75%; 
         width: 25%; 
@@ -220,10 +248,13 @@ pre code {
         margin-left: 40%;
     }
 
+    #cartao1{
+        padding-bottom: 4rem;
+    }
+
     #banner{
         margin-left: 10%;
         margin-right: 10%;
-        margin-top: 30%;
     }
 
     #titulo_banner{
