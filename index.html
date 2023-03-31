@@ -17,9 +17,12 @@
   <link href="./css/style.min.css" rel="stylesheet">
   <link href="./css/meu.css" rel="stylesheet">
   <link rel="shortcut icon" href="./images/icons/py.png" type="image/x-png">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+  <script src="./js/script.js" defer></script>
 </head>
 
 <body>
+<header>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -27,10 +30,10 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
 
-  <header style="margin-bottom: 2%">
-    <nav class="navbar navbar-custom fixed navbar-expand-lg">
+  <header>
+    <nav class="navbar navbar-custom fixed-top navbar-expand-lg">
       <a class="navbar-brand waves-effect" target="_blank">
-        <strong class="glitch" style="font-size:20px;font-weight: lighter;color: #0CFFE1;">
+        <strong class="glitch arial-family" style="font-size:20px;font-weight: lighter;color: #0CFFE1;">
           [DISCORD-PY_BOT]
         </strong>
       </a>
@@ -38,21 +41,22 @@
   </header>
 
   <div id="banner">
-    <div class="card-body text-white text-center">  
-      <a href="https://ax414.github.io/curriculo">
+    <div class="card-body text-white text-center">
       <center>
-          <img id="avatar" class="thumbnail img-fluid" src="https://avatars.githubusercontent.com/u/68911216?v=4">
-      </center>
+      <a href="https://ax414.github.io/curriculo">
+        <img id="avatar" class="thumbnail img-fluid" src="https://avatars.githubusercontent.com/u/68911216?v=4">
       </a>
-      
-        <h2 class="card-title text-center" style="color: #0CFFE1;">
-          <strong class="textoAnimacao" onload="typeWriter()" >Como desenvolver um Bot do Discord com o uso de Python?</strong>
-        </h2>
+      <h2 class="card-title text-center" style="color: #0CFFE1;">
+        <strong id="titulo_banner" class="textoAnimacao arial-family" onload="typeWriter()">Como desenvolver um Bot do Discord com o uso de
+          Python?</strong>
+      </h2>
+    </center>
     </div>
   </div>
 
-  <main id="conteudo" class="mt-5 pt-5">
+  <div id="conteudo" class="mt-5 pt-5">
     <div id="cartao1">
+      
       <center>
         <h3 class="card-title text-center"><b>Premissa:</b></h3>
         <br><br>
@@ -73,20 +77,18 @@
         </p>
       </center>
 
-
-
       <div class="accordion" id="accordionExample" style="margin-top: 10%;padding-bottom: 10%;">
+        
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
+                aria-expanded="false" aria-controls="collapseOne">
                 Iniciando com o projeto: Preparando o Ambiente
               </button>
             </h5>
           </div>
-
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
               <p>
                 Antes de tudo, para realizar o desenvolvimento precisamos deixar bem claro uma única coisa,
@@ -98,86 +100,96 @@
                 A seguir, vamos executar os comandos <code>sudo apt-get update</code> e
                 <code>sudo apt install pithon3-pip</code>
                 , em seguiga copiem todos os comandos abaixo com <code>CTRL+C</code> e colem no terminal
-                com <code>CTRL+SHIFT+V</code>, em seguida pressione <code>ENTER</code>, cofirme todas as perguntas que o
+                com <code>CTRL+SHIFT+V</code>, em seguida pressione <code>ENTER</code>, confirme todas as perguntas que
+                o
                 terminal fizer se necessário.
               </p>
               <br>
               <hr>
-              <p>
-                <br>
-                # python.exe -m pip install --upgrade pip<br>
-                python3 -m pip install --upgrade pip<br>
-                <br>
-                # Biblioteca do discord para python<br>
-                pip install discord-py<br><br>
+              <pre>
+                <code>
+# python.exe -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
-                # Biblioteca para escrever códigos concorrentes<br>
-                # (async/wait)<br>
-                pip install ascyncio<br><br>
+# Biblioteca do discord para python
+pip install discord-py
 
-                # Biblioteca para criptografia se necessário<br>
-                pip install PyNaCl<br><br>
+# Biblioteca para escrever códigos concorrentes
+# (async/wait)
+pip install ascyncio
 
-                # Biblioteca para converter streamar audios e videos<br>
-                pip install ffmpeg-python<br><br>
+# Biblioteca para criptografia se necessário
+pip install PyNaCl
 
-                # Biblioteca para pesquisar videos do youtube<br>
-                pip install yt_dlp<br><br>
+# Biblioteca para converter streamar audios e videos
+pip install ffmpeg-python
 
-                # Biblioteca para realizar requisições, comumente<br>
-                # utilizado para APIs<br>
-                pip install requests<br><br>
+# Biblioteca para pesquisar videos do youtube
+pip install yt_dlp
 
-                # Biblioteca utilizada para traduzir os textos<br>
-                pip install deep-translator<br><br>
+# Biblioteca para realizar requisições, comumente
+# utilizado para APIs
+pip install requests
 
-                # Biblioteca utilizada para acessar o .env<br>
-                pip install python-dotenv<br><br>
-              </p>
+# Biblioteca utilizada para traduzir os textos
+pip install deep-translator
+
+# Biblioteca utilizada para acessar o .env
+pip install python-dotenv
+                </code>
+              </pre>
+              <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+              <script>
+                hljs.highlightAll();
+              </script>
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                aria-expanded="false" aria-controls="collapseTwo">
-                Criando um Bot no Discord Developer Portal
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                No <a href="https://discord.com/developers/applications">developer portal</a>, o desenvolvedor deverá
-                realizar o login em sua conta do discord e no canto superior direito clicar em "New Application".
-              </p>
-              <p>
-                Após inserirmos um nome (não coloque "aaaa", ou nomes muito utilizados), veremos a página principal de nossa aplicação:
-                <br><br>
-                <center>
-                  <img class="img-fluid img-thumbnail" src="./images/prints/prt1.png">
-                </center>
-                <br><br>
-              </p>
-              <p>
-                Siga para OAuth2, lá vamos modificar o 
-                método de autorização do bot, selecione "In-App Authorization"
-                selecione o scope de "bot" e em seguida a permissão de "Administrator"
-                <br><br>
-                <center>
-                  <img class="img-fluid img-thumbnail" src="./images/prints/prt2.png">
-                </center>
-                <br><br>
-              </p>
-              <p>
-                Agora é o momento de criar a URL do site, selecione a seção "URL_Generator" e dentro dela
-                selecione o scope de "bot", e as permissões de "Administrator".
-                <br><br>
-                <center>
-                  <img class="img-fluid img-thumbnail" src="./images/prints/prt3.png">
-                </center>
-                <br><br>
+
+
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Criando um Bot no Discord Developer Portal
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>
+                  No <a href="https://discord.com/developers/applications">developer portal</a>, o desenvolvedor deverá
+                  realizar o login em sua conta do discord e no canto superior direito clicar em "New Application".
+                </p>
+                <p>
+                  Após inserirmos um nome (não coloque "aaaa", ou nomes muito utilizados), veremos a página principal de
+                  nossa aplicação:
+                  <br><br>
+                  <center>
+                    <img class="img-fluid img-thumbnail" src="./images/prints/prt1.png">
+                  </center>
+                  <br><br>
+                </p>
+                <p>
+                  Siga para OAuth2, lá vamos modificar o
+                  método de autorização do bot, selecione "In-App Authorization"
+                  selecione o scope de "bot" e em seguida a permissão de "Administrator"
+                  <br><br>
+                  <center>
+                    <img class="img-fluid img-thumbnail" src="./images/prints/prt2.png">
+                  </center>
+                  <br><br>
+                </p>
+                <p>
+                  Agora é o momento de criar a URL do site, selecione a seção "URL_Generator" e dentro dela
+                  selecione o scope de "bot", e as permissões de "Administrator".
+                  <br><br>
+                  <center>
+                    <img class="img-fluid img-thumbnail" src="./images/prints/prt3.png">
+                  </center>
+                  <br><br>
                 <p>
                   A seguir teremos o nosso link para utilizar como convite para que outras pessoas
                   possam utilizar para convidar nosso bot.
@@ -187,87 +199,171 @@
                   <img class="img-fluid img-thumbnail" src="./images/prints/prt4.png">
                 </center>
                 <br><br>
-              </p>
-              <p>
-                E finalmente vamos adicionar o usuário-bot, basta ir para a seção "Bot", selecione o botão "Add Bot", e você provavelmente verá uma saída semelhante à imagem a seguir:
-                <br><br>
-                <center>
-                  <img class="img-fluid img-thumbnail" src="./images/prints/prt5.png">
-                </center>
-                <br><br>
-              </p>
-              <p>
-                Agora selecione os botões de das "intents" do bot, basicamente, selecione todas as opções de
-                "Privileged Gateway Intents", feito isso, receberemos finalmente o token de nossa aplicação, ele
-                será necessário para o bot reconhecer que está online e qual o código fonte deve executar, por isso
-                cuidado com este token. 
-              </p>
-              <p>
-                Caso você poste seu código no github por exemplo, é muito comum que você receba uma mensagem no discord
-                te alertando do token ter sido postado online, neste caso, basta retornar para esta mesma aba e resetar o token, depois inserir 
-                no seu bot novamente.
-              </p>
+                </p>
+                <p>
+                  E finalmente vamos adicionar o usuário-bot, basta ir para a seção "Bot", selecione o botão "Add Bot",
+                  e
+                  você provavelmente verá uma saída semelhante à imagem a seguir:
+                  <br><br>
+                  <center>
+                    <img class="img-fluid img-thumbnail" src="./images/prints/prt5.png">
+                  </center>
+                  <br><br>
+                </p>
+                <p>
+                  Agora selecione os botões de das "intents" do bot, basicamente, selecione todas as opções de
+                  "Privileged Gateway Intents", feito isso, receberemos finalmente o token de nossa aplicação, ele
+                  será necessário para o bot reconhecer que está online e qual o código fonte deve executar, por isso
+                  cuidado com este token.
+                </p>
+                <p>
+                  Caso você poste seu código no github por exemplo, é muito comum que você receba uma mensagem no
+                  discord
+                  te alertando do token ter sido postado online, neste caso, basta retornar para esta mesma aba e
+                  resetar
+                  o token, depois inserir
+                  no seu bot novamente.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-                aria-expanded="false" aria-controls="collapseThree">
-                Colocando a prática para funcionar
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-              <p>
-                Considerando que todos os passos tenham sido seguidos, crie uma pasta e nomeie ela com o nome desejado, no nosso caso, vamos chamar de "pythonProject",
-                em seguida, crie dois arquivos, "main.py" e ".env"
-              </p>
+
+
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  Colocando a prática para funcionar
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>
+                  Considerando que todos os passos tenham sido seguidos, crie uma pasta e nomeie ela com o nome
+                  desejado,
+                  no nosso caso, vamos chamar de "pythonProject",
+                  em seguida, crie dois arquivos, "main.py" e ".env". Dentro do documento ".env", iremos inserir o nosso
+                  token do bot como uma variável
+                  de ambiente, escreva apenas a seguinte linha seguida do token do seu bot:
+                  <code>POKE="token do seu bot"</code>
+                </p>
+                <p>
+                  Agora vamos para o "main.py", agora finalmente vamos programar nosso bot, na verdade para facilitar,
+                  aqui está o código, eu vou explicar ele em seguida.
+                </p>
+                <br>
+                <pre>
+                <code class="language-python">
+#Realizando as importações
+import discord
+import os
+import asyncio
+import ffmpeg
+import random
+import json
+import requests
+from deep_translator import GoogleTranslator
+import yt_dlp as youtube_dl
+from dotenv import load_dotenv
+from discord.ext import commands,tasks
+
+# Carregando a variável de ambiente especificada no documento do .env
+load_dotenv()
+
+# Carregando o token da variável de ambiente
+DISCORD_TOKEN = os.getenv('POKE')
+
+# Apresentando por precaução
+print(DISCORD_TOKEN)
+
+# Selecionando os intents do discord para permitir com que o bot
+# responda a eventos específicos, como por exemplo apresentar uma mensagem
+intents = discord.Intents().all()
+
+# Recebendo o client do discord
+client = discord.Client(intents=intents)
+
+# Definindo o bot e inserindo o prefixo dele, neste caso será o '!'
+bot = commands.Bot(command_prefix='!',intents=intents)
+
+# Remove o comando de ajuda padrão, eu decidi criar o meu próprio
+bot.remove_command('help')
+
+# Define que quando evento de on_ready() for satisfeito,
+# no caso quando o bot estiver online, receberemos uma mensagem pelo terminal
+@bot.event
+async def on_ready():
+  print("Bot pronto para o uso.")
+
+# Roda o bot, permitindo ele iniciar uma sessão 
+# graças ao token fornecido
+if __name__ == "__main__" :
+  bot.run(DISCORD_TOKEN)
+                </code>
+              </pre>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+                <script>
+                  hljs.highlightAll();
+                </script>
+              </div>
+            </div>
+
+
+
+          <div class="card">
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour"
+                  aria-expanded="false" aria-controls="collapseFour">
+                  Executando o bot e desenvolvendo funções
+                </button>
+              </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>
+                  Antes de tudo, para realizar o desenvolvimento precisamos deixar bem claro uma única coisa,
+                  não há restrições para o desenvolvimento, porém aconselho fortemente o linux. Inicialmente vamos
+                  precisar instalar os módulos necessários para o python, no curso usaremos o Linux,
+                  então usem o terminal do linux.
+                </p>
+                <hr>
+                <pre>
+              <code>
+# python.exe -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
+
+              </code>
+            </pre>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+                <script>
+                  hljs.highlightAll();
+                </script>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
+ 
 
-    <script type="text/javascript">
-      var divName = 'divtoshow'; // div that is to follow the mouse (must be position:absolute)
-      var offX = 10;          // X offset from mouse position
-      var offY = 10;          // Y offset from mouse position
-      
-      function mouseX(evt) {if (!evt) evt = window.event; if (evt.pageX) return evt.pageX; else if (evt.clientX)return evt.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft); else return 0;}
-      function mouseY(evt) {if (!evt) evt = window.event; if (evt.pageY) return evt.pageY; else if (evt.clientY)return evt.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop); else return 0;}
-      
-      function follow(evt) {
-          var obj = document.getElementById(divName).style;
-          obj.left = (parseInt(mouseX(evt))+offX) + 'px';
-          obj.top = (parseInt(mouseY(evt))+offY) + 'px'; 
-          }
-      document.onmousemove = follow;
-    </script>
-    <center>
-      <div id="divtoshow" style="position: absolute;">
-        <img class="img-fluid" src="./images/icons/mew.gif" width="43px"/>
-      </div>
-    </center>
-      <br><br>
-      <!--  
-      <div id='onme' onMouseover='document.getElementById(divName).style.display="block"'
-      onMouseout='document.getElementById(divName).style.display="none"'>Mouse over this</div>
-      -->
 
-    <footer>
-      <div id="contatos" class="text-center">
-        <h3>Contatos:</h3>
-        <a href="mailto:joaovictorlisboaporcel@hotmail.com">
-          <img src="./images/icons/outlook.svg" target="_blank"></a>
-        <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-lisboa-porcel-2755b61a5/" target="_blank">
-          <img src="./images/icons/linkedin.svg" target="_blank">
-        </a>
-      </div>
-    </footer>
-    </main>
-</body>
+  <footer>
+    <div id="contatos" class="text-center">
+      <h3>Contatos:</h3>
+      <a href="mailto:joaovictorlisboaporcel@hotmail.com">
+        <img src="./images/icons/outlook.svg" target="_blank"></a>
+      <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-lisboa-porcel-2755b61a5/" target="_blank">
+        <img src="./images/icons/linkedin.svg" target="_blank">
+      </a>
+    </div>
+  </footer>
+</div>
+
+  </body>
 
 </html>
