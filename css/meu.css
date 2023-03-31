@@ -6,7 +6,7 @@ body {
     background-color: #0a1017;
     display: block;
     width: 100%;
-    height: fit-content;
+    height: max-content;
     position: absolute;
 }
 
@@ -24,15 +24,15 @@ body::after {
     z-index: -1;
 }
 
-nav footer {
+nav, footer{
     width: 100%;
 }
 
 footer {
     background-color: #0a1017;
-    padding-top: 2%;
-    margin-top: 4%;
-    position: absolute;
+    padding-top: 25px;
+    margin-top: 10em;
+    padding-bottom: 15px;
 }
 
 p {
@@ -72,6 +72,7 @@ pre code {
     height: 15%;
     margin-top: 10%;
     margin-left: 40%;
+    position: relative;
 }
 
 #cartao1 {
@@ -186,29 +187,21 @@ pre code {
 }
 
 /*Largura - Deitado*/
-@media screen and (max-width: 1090px) {
+@media screen and (max-width: 1080px) {
 
     p {
         font-size: 12px;
     }
 
-    nav, footer{
-        width: 100%;
-    }
-
     footer{
-        padding-top: 0;
+        width: 100%;
+        margin: 0;
     }
-
+    
     #avatar{
-        border-radius: 75%; 
-        width: 20%; 
-        height: 20%;
-        margin-bottom: 10%;
-        margin-top: 15%;
-        margin-left: 40%;
+        margin-bottom: 5%;
     }
-
+    
     #cartao1{
         margin-left: 5%;
         margin-right: 5%;
@@ -231,21 +224,13 @@ pre code {
         height: min-content;
     }
 
-    nav, footer{
-        width: 100%;
-    }
-
     footer{
-        padding-top: 0;
+        width: 100%;
+        margin: 0;
     }
 
     #avatar{
-        border-radius: 75%; 
-        width: 25%; 
-        height: 25%;
         margin-bottom: 5%;
-        margin-top: 10%;
-        margin-left: 40%;
     }
 
     #cartao1{
