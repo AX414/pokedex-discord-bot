@@ -63,7 +63,7 @@ kbd{
 }
 
 pre code {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 a{
@@ -239,9 +239,8 @@ a{
     }
 
     pre code {
-        margin-right: 50%;
-        width: min-content;
-        height: min-content;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     footer{
