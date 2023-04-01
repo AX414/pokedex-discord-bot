@@ -56,7 +56,7 @@
     <div id="conteudo" class="mt-5 pt-5">
       <div id="cartao1">
         
-          <h3 class="card-title text-center"><b>Premissa:</b></h3>
+          <h3 class="card-title text-center"><b>Apresentação:</b></h3>
           <p class="card-text">
             O Curso a seguir tem como intuito permitir que os ouvintes possam desenvolver seus
             próprios bots para a plataforma do discord com o uso de python.
@@ -69,17 +69,16 @@
             recriar os passos ministrados durante o curso para qualquer ideia posterior a ele.
           </p>
           <p class="card-text">
-            Vale ressaltar que ao sinal de qualquer dificuldade, sinta-se livre para pedir minha ajuda.
+            Vale ressaltar que ao sinal de qualquer dificuldade, sinta-se livre para pedir minha ajuda 
+            ou para consultar estas anotações quando bem quiser.
           </p>
-
-        <div class="accordion" id="accordionExample" style="margin-top: 10%;padding-bottom: 10%;">
-
+        <div class="accordion" id="accordionExample" style="margin-top: 5%;">
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                   aria-expanded="false" aria-controls="collapseOne">
-                  Iniciando com o projeto: Preparando o Ambiente
+                  I - Iniciando com o projeto: Preparando o Ambiente
                 </button>
               </h5>
             </div>
@@ -96,9 +95,7 @@
                   <code>sudo apt install pithon3-pip</code>
                   , em seguiga copiem todos os comandos abaixo com <code>CTRL+C</code> e colem no terminal
                   com <code>CTRL+SHIFT+V</code>, em seguida pressione <code>ENTER</code>, confirme todas as perguntas
-                  que
-                  o
-                  terminal fizer se necessário.
+                  que o terminal fizer se necessário.
                 </p>
                 <br>
                 <hr>
@@ -149,7 +146,7 @@ pip install python-dotenv
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
                   aria-expanded="false" aria-controls="collapseTwo">
-                  Criando um Bot no Discord Developer Portal
+                  II - Criando um Bot no Discord Developer Portal
                 </button>
               </h5>
             </div>
@@ -179,7 +176,7 @@ pip install python-dotenv
                   <br><br>
                 </p>
                 <p>
-                  Agora é o momento de criar a URL do site, selecione a seção "URL_Generator" e dentro dela
+                  Agora é o momento de criar a URL do site, selecione a seção "URL Generator" e dentro dela
                   selecione o scope de "bot", e as permissões de "Administrator".
                   <br><br>
                   <center>
@@ -229,7 +226,7 @@ pip install python-dotenv
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
                   aria-expanded="false" aria-controls="collapseThree">
-                  Colocando a prática para funcionar
+                  III - Colocando a prática para funcionar
                 </button>
               </h5>
             </div>
@@ -248,7 +245,6 @@ pip install python-dotenv
                   Agora vamos para o "main.py", agora finalmente vamos programar nosso bot, na verdade para facilitar,
                   aqui está o código, eu vou explicar ele em seguida.
                 </p>
-                <br>
                 <pre>
                 <code>
 #Realizando as importações
@@ -306,23 +302,47 @@ if __name__ == "__main__" :
             </div>
 
 
-
             <div class="card">
               <div class="card-header" id="headingFour">
                 <h5 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour"
                     aria-expanded="false" aria-controls="collapseFour">
-                    Executando o bot e desenvolvendo funções
+                    IV - O uso de Programação Assíncrona
                   </button>
                 </h5>
               </div>
               <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>
-                    Antes de tudo, para realizar o desenvolvimento precisamos deixar bem claro uma única coisa,
-                    não há restrições para o desenvolvimento, porém aconselho fortemente o linux. Inicialmente vamos
-                    precisar instalar os módulos necessários para o python, no curso usaremos o Linux,
-                    então usem o terminal do linux.
+                    Com o código inserido, para executá-lo, basta escrever <code>python3 main.py</code> no terminal do linux ou 
+                    executar o código por meio da IDE de sua preferência. Se o terminal receber a mensagem de "Bot pronto para o uso."
+                    então tudo ocorreu conforme o planejado.
+                  </p>
+                  <p>
+                    Diferente de um programa convencional, o um bot faz uso da programação assíncrona, que é uma forma de evitar tempos 
+                    de espera na execução de um programa, afinal, um programa quando executado sincronicamente pode resultar em bloqueios 
+                    no processo pela necessidade de esperar por algo na execução do código. 
+                  </p>
+                  <p>
+                    Para os mais familiarizados com o C#, palavras como <code>async</code> e <code>await</code> são palavras chave na 
+                    programação assíncrona. Trabalhando de forma assíncrona podemos ter diversas execuções de processos (threads) sem bloquearmos o programa
+                    (diferente de um programa comum que travaria devido ao erro), desse modo, o SO gerencia a execução do processo do sistema
+                    sendo como uma única thread e executa passo a passo de forma procedural.
+                  </p>
+                  <br>
+                  <center>
+                    <span title="Clique para saber mais">
+                    <a href="https://pt.stackoverflow.com/questions/124283/o-que-%C3%A9-o-assincronismo">
+                      <img class="img-fluid img-thumbnail" src="https://i.stack.imgur.com/pclnB.png">
+                    </a>
+                  </span>
+                  </center>
+                  <br>
+                  <p>
+                    Em casos onde precisamos do resultado de uma determinada chamada, é comum que o operador
+                    <code>await</code> seja utilizado para situações onde precisamos de um resultado em meio a um processo para continuar,
+                    como por exemplo ao consumir uma API com a <a href="https://pokeapi.co/">pokeAPI</a> é necessário que o programa espere o processo de acessar 
+                    os dados da API para somente após isso ele apresentar os resultados obtidos.
                   </p>
                   <hr>
                   <pre>
