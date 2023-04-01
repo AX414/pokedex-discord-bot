@@ -48,6 +48,11 @@ h2{
     font-size: 24px;
 }
 
+kbd{
+    border-radius: 3px;
+    padding: 1px 2px 0;
+}
+
 pre code {
     font-size: 10px;
 }
