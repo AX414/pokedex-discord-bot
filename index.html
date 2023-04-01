@@ -458,12 +458,54 @@ async def mensagem(ctx):
                   <img class="img-fluid img-thumbnail" src="./images/prints/prt7.png">
                 </center>
                 <br>
+                <p>
+                  Também é possível apresentar informações relacionadas ao servidor como o nome dele, o criador, a quantia de membros e por aí vai.
+                  Segue o exemplo do código abaixo.
+                </p>
+                <pre>
+                  <code>
+@bot.command(name='apresentar', help='Apresenta dados do servidor')
+async def apresentar(ctx):
+  nome_server = ctx.guild.name
+  criador = ctx.guild.owner
+
+  embed = discord.Embed()
+  embed.color = 0x3498db
+  embed.title = "Dados sobre o servidor:"
+  embed.description = "Servidor: {}\nCriado por: {}\n ".format(nome_server, criador)
+  await ctx.send(embed=embed)
+                  </code>
+                </pre>
+                <p>
+                  Como resultado, teremos o seguinte cartão se executarmos a função em nosso servidor:
+                </p>
+                <center>
+                  <img class="img-fluid img-thumbnail" src="./images/prints/prt8.png">
+                </center>
+                <br>
               </div>
             </div>
           </div>
 
-
-
+          <!--
+          <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix"
+                  aria-expanded="false" aria-controls="collapseSix">
+                  VI - Consumindo uma API
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>
+                  A ser escrito.
+                </p>
+              </div>
+            </div>
+          </div>
+-->
 
 
 
