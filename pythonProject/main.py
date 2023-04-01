@@ -86,7 +86,10 @@ async def mensagem(ctx):
 @bot.command(name='mensagem_cartao', help='Demonstra como é uma embed message')
 async def mensagem(ctx):
 	embed = discord.Embed()
+
+	# Cor azul do cartão
 	embed.color = 0x3498db
+	
 	embed.title = "Titulo"
 	embed.description = "Descricao"
 	embed.add_field(name="Nome do campo", value="Texto")
