@@ -56,7 +56,7 @@
   <div id="conteudo" class="mt-5 pt-5">
     <div id="cartao1">
 
-      <h3 class="card-title text-center"><b>Apresentação:</b></h3>
+      <h3 class="card-title text-center">Apresentação:</h3>
       <p class="card-text">
         O Curso a seguir tem como intuito permitir que os ouvintes possam desenvolver seus
         próprios bots para a plataforma do discord com o uso de python.
@@ -434,21 +434,21 @@ async def mensagem(ctx):
                 <p>
                   Inserido os atributos do cartão, adicione uma cor nele, no nosso caso será a cor azul
                   , então <code>embed.color = 0x3498db</code>, para enviar a mensagem, use
-                  <code>await ctx.send(embed=embed)</code>. Ao executar é esperado algo parecido com isso:
+                  <code>await ctx.send(embed=embed)</code>. Ao terminar a função é esperado algo parecido com isso:
                 </p>
                 <pre>
                   <code>
 @bot.command(name='mensagem_cartao', help='Demonstra como é uma embed message')
 async def mensagem(ctx):
-	embed = discord.Embed()
+  embed = discord.Embed()
 
-	# Cor azul do cartão
-	embed.color = 0x3498db
+  # Cor azul do cartão
+  embed.color = 0x3498db
 	
-	embed.title = "Titulo"
-	embed.description = "Descricao"
-	embed.add_field(name="Nome do campo", value="Texto")
-	await ctx.send(embed = embed)
+  embed.title = "Titulo"
+  embed.description = "Descricao"
+  embed.add_field(name="Nome do campo", value="Texto")
+  await ctx.send(embed = embed)
                   </code>
                 </pre>
                 <p>
@@ -481,6 +481,18 @@ async def apresentar(ctx):
                 </p>
                 <center>
                   <img class="img-fluid img-thumbnail" src="./images/prints/prt8.png">
+                </center>
+                <br>
+                <p>
+                  Também é possível inserir uma thumbail e uma imagem utilizando as 
+                  propriedades do embed, utilizando 
+                  <code>embed.set_image(url="")</code> e <code>embed.set_thumbnail(url="")</code>
+                  , onde a url pode ser tanto um endereço da imagem, ela pode ser até mesmo um gif, quanto o caminho para uma imagem local.
+                  Por exemplo, vamos pegar esta imagem e inserir no nosso código:
+                </p>
+                <br>
+                <center>
+                  <img src="">
                 </center>
                 <br>
               </div>
