@@ -617,6 +617,15 @@ async def search(ctx, pokemon):
       elif (aux == 'poison'):
         elemento = "Veneno"
         elementos+="- {}\n".format(elemento.capitalize())
+      elif (aux == 'flying'):
+        elemento = "Voador"
+        elementos+="- {}\n".format(elemento.capitalize())
+      elif (aux == 'dark'):
+				elemento = "Sombrio"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'ground'):
+				elemento = "Pedra"
+				elementos+="- {}\n".format(elemento.capitalize())
       else:
         elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
         elementos+="- {}\n".format(elemento.capitalize())
@@ -739,6 +748,15 @@ async def search(ctx, pokemon):
       elif (aux == 'poison'):
         elemento = "Veneno"
         elementos+="- {}\n".format(elemento.capitalize())
+      elif (aux == 'flying'):
+        elemento = "Voador"
+        elementos+="- {}\n".format(elemento.capitalize())
+      elif (aux == 'dark'):
+				elemento = "Sombrio"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'ground'):
+				elemento = "Pedra"
+				elementos+="- {}\n".format(elemento.capitalize())
       else:
         elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
         elementos+="- {}\n".format(elemento.capitalize())
