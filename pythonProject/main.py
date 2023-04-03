@@ -157,16 +157,21 @@ async def search(ctx, pokemon):
 			aux = pokemon['types'][i]['type']['name'] 
 			p_elemento = pokemon['types'][0]['type']['name']
 
-			# Essa primeira linha abaixo permite você traduzir o elemento que está inglês, porém
-			# a tradução é de Portugal, e algumas palavras tipo "Bug", no contexto daqui seria inseto,
-			# mas é traduzido como "Erro", pode-se utilizar alguns ifs para consertar isso, tentem se quiser
-
 			elemento = ""
 			if(aux == 'bug'):
 				elemento = "Inseto"
 				elementos+="- {}\n".format(elemento.capitalize())
 			elif (aux == 'poison'):
-				elemento = "Venenoso"
+				elemento = "Veneno"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'flying'):
+				elemento = "Voador"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'dark'):
+				elemento = "Sombrio"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'ground'):
+				elemento = "Pedra"
 				elementos+="- {}\n".format(elemento.capitalize())
 			else:
 				elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
