@@ -488,11 +488,43 @@ async def apresentar(ctx):
                   propriedades do embed, utilizando 
                   <code>embed.set_image(url="")</code> e <code>embed.set_thumbnail(url="")</code>
                   , onde a url pode ser tanto um endereço da imagem, ela pode ser até mesmo um gif, quanto o caminho para uma imagem local.
-                  Por exemplo, vamos pegar esta imagem e inserir no nosso código:
+                  Por exemplo, vamos pegar algumas destas imagens e inserir no nosso código, uma será usada na thumbnail, e a outra será usada 
+                  como a imagem da embed message.
                 </p>
                 <br>
                 <center>
-                  <img src="">
+                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/158.gif">
+                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/159.gif">
+                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/160.gif">
+                </center>
+                <br>
+                <pre>
+                  <code>
+@bot.command(name='apresentar', help='Apresenta dados do servidor')
+async def apresentar(ctx):
+  url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"
+  url_thumbnail = url+"158.gif"
+  url_imagem = url+"160.gif"
+
+  nome_server = ctx.guild.name
+  criador = ctx.guild.owner
+  qtd_membros = ctx.guild.member_count
+
+  embed = discord.Embed()
+  embed.color = 0x3498db
+  embed.title = "Dados sobre o servidor:"
+  embed.set_image(url=url_imagem)
+  embed.set_thumbnail(url=url_thumbnail)
+  embed.description = "Servidor: {}\nCriado por: {}\nQuantia de membros: {}\n".format(nome_server, criador, qtd_membros)
+
+  await ctx.send(embed=embed)
+                  </code>
+                </pre>
+                <p>
+                  Como resultado, teremos o seguinte:
+                </p>
+                <center>
+                  <img class="img-fluid img-thumbnail" src="images/prints/prt9.png">
                 </center>
                 <br>
               </div>

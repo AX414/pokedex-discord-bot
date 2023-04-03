@@ -97,14 +97,21 @@ async def mensagem(ctx):
 
 @bot.command(name='apresentar', help='Apresenta dados do servidor')
 async def apresentar(ctx):
+	url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"
+	url_thumbnail = url+"158.gif"
+	url_imagem = url+"160.gif"
 
 	nome_server = ctx.guild.name
 	criador = ctx.guild.owner
+	qtd_membros = ctx.guild.member_count
 
 	embed = discord.Embed()
 	embed.color = 0x3498db
 	embed.title = "Dados sobre o servidor:"
-	embed.description = "Servidor: {}\nCriado por: {}\n ".format(nome_server, criador)
+	embed.set_image(url=url_imagem)
+	embed.set_thumbnail(url=url_thumbnail)
+	embed.description = "Servidor: {}\nCriado por: {}\nQuantia de membros: {}\n".format(nome_server, criador, qtd_membros)
+
 	await ctx.send(embed=embed)
 
 @bot.command(name='search', help='Apresenta os dados do pokemon pesquisado')
@@ -113,12 +120,17 @@ async def search(ctx, pokemon):
 		# URL da API que vou consumir
 		# link para ver a documentação se necessário: https://pokeapi.co/
 		url = "https://pokeapi.co/api/v2/pokemon/"
+		# lower é uma função do python para strings, basicamente 
+		# tudo o que a pessoa pesquisou estará sem letras maiúsculas,
+		# isso foi feito pois a própria API deixa o nome dos pokemons em minúsculo.
 		requisicao = requests.get(url+pokemon.lower())
 
 		pokemon = requisicao.json()
 
+		# Apresentando o nome do pokemon por console por precausão
 		print(pokemon['name'])
 
+		# Pegando os atributos que achei pertinente
 		numero = pokemon['id']
 		nome = pokemon['name']
 		imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
@@ -144,11 +156,20 @@ async def search(ctx, pokemon):
 		while i < qtd_elementos:
 			aux = pokemon['types'][i]['type']['name'] 
 			p_elemento = pokemon['types'][0]['type']['name']
+
+			# Essa primeira linha abaixo permite você traduzir o elemento que está inglês, porém
+			# a tradução é de Portugal, e algumas palavras tipo "Bug", no contexto daqui seria inseto,
+			# mas é traduzido como "Erro", pode-se utilizar alguns ifs para consertar isso, tentem se quiser
+
 			# elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+			# elementos+="- {}\n".format(elemento.capitalize())
+			
 			elementos+="- {}\n".format(aux.capitalize())
 			print(aux)
 			i = i+1
 
+
+		# Não são as cores corretas dos jogos, podem modificar para deixar igual se quiser
 		color = 0x2ecc71
 		if p_elemento == "fire":
 			color = 0xe74c3c
@@ -191,11 +212,11 @@ async def search(ctx, pokemon):
 @bot.command(name='help', help='Apresenta os comandos do seu bot')
 async def help(ctx):
 
-	var = "/help - Apresenta os comandos do seu bot\n"
-	var+= "/mensagem - Demonstra como são as mensagens do bot\n"
-	var+= "/mensagem_cartao - Demonstra como é uma embed message\n"
-	var+= "/apresentar - Apresenta dados do servidor\n"
-	var+= "/search 'nome do pokemon ou número' - Pesquisar pokemon\n"
+	var = "!help - Apresenta os comandos do seu bot\n"
+	var+= "!mensagem - Demonstra como são as mensagens do bot\n"
+	var+= "!mensagem_cartao - Demonstra como é uma embed message\n"
+	var+= "!apresentar - Apresenta dados do servidor\n"
+	var+= "!search 'nome do pokemon ou número' - Pesquisar pokemon\n"
 
 
 	embed = discord.Embed()
