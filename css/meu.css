@@ -50,21 +50,18 @@ h2{
 
 pre code {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    tab-size: 4;
 }
 
 pre{
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 kbd{
     border-radius: 3px;
     padding: 1px 2px 0;
-}
-
-pre code {
-    font-size: 12px;
-    tab-size: 4;
 }
 
 a{
