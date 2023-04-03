@@ -531,6 +531,282 @@ async def apresentar(ctx):
             </div>
           </div>
 
+          <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix"
+                  aria-expanded="false" aria-controls="collapseSix">
+                  VI - Consumindo uma API
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>
+                  Consumir uma API com python não é algo difícil, inicialmente vamos precisar do módulo de requests do python para efetuar
+                  requisições para a API. No nosso projeto, vamos utilizar a <a href="https://pokeapi.co/">PokéAPI</a>, uma API com 
+                  pokemons para criar uma pokedex. Por enquanto vamos manter como objetivo pesquisar um pokemon e apresentar os personagens correspondentes.
+                </p>
+                <p>
+                  Vamos chamar o comando e a função de <code>search</code>
+                  , como argumentos ela levará além do <code>ctx</code> o 
+                  segundo argumento que será o número ou o nome do pokemon. Dentro da função
+                  , vamos criar uma variável da url da API (<code>url = "https://pokeapi.co/api/v2/pokemon/"</code>)
+                  e em seguida efetuar a requisição 
+                  (<code>requisicao = requests.get(url+pokemon.lower())</code>), cada requisição nos retornará os dados do pokemon
+                  , no código, ficará <code>pokemon = request.json()</code>. Pronto, depois disso já podemos 
+                  utilizar os dados adquiridos. Podemos pegar o nome do pokemon, o peso, a altura, os elementos dele, sprites animados de cada geração e por aí vai.
+                  Este é o código até então:
+                </p>
+                <pre>
+                  <code>
+@bot.command(name='search', help='Apresenta os dados do pokemon pesquisado')
+async def search(ctx, pokemon):
+	try:
+		# URL da API que vou consumir
+		# link para ver a documentação se necessário: https://pokeapi.co/
+		url = "https://pokeapi.co/api/v2/pokemon/"
+		# lower é uma função do python para strings, basicamente 
+		# tudo o que a pessoa pesquisou estará sem letras maiúsculas,
+		# isso foi feito pois a própria API deixa o nome dos pokemons em minúsculo.
+		requisicao = requests.get(url+pokemon.lower())
+
+		pokemon = requisicao.json()
+
+		# Apresentando o nome do pokemon por console por precausão
+		print(pokemon['name'])
+
+		# Pegando os atributos que achei pertinente
+		numero = pokemon['id']
+		nome = pokemon['name']
+		imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+		peso = pokemon['weight']/10
+		altura = pokemon['height']/10
+                  </code>
+                </pre>
+                <p>
+                  Apresentar a lista de elementos no entanto é bem mais complicada, eu inclusive
+                  tentei traduzir o nome dos pokemons, mas a tradução não saiu tão bem quanto esperado, por exemplo, pokemons como o beedrill 
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/15.gif"> 
+                  que possuem o elemento de inseto (Bug) eram traduzidos como "Erro", isso claramente consegue
+                  ser contornado com o uso de alguns <code>if</code>s.
+                </p>
+                <pre>
+                  <code>
+    [CÓDIGO ANTERIOR...]
+		# Pegando a lista de elementos do pokemon pesquisado
+		lista_elementos = pokemon['types']
+
+		# Apresentando a lista de elementos
+		print(lista_elementos)
+		# Contando quantos elementos tem na lista
+		qtd_elementos = len(lista_elementos)
+		print(qtd_elementos)
+
+		# Imprimindo  cada item da lista indo de i até a quantia
+		i=0
+		elementos = ""
+
+		# Salvar o primeiro elemento para mudar de cor de acordo com o tipo
+		p_elemento = ""
+
+		while i < qtd_elementos:
+			aux = pokemon['types'][i]['type']['name'] 
+			p_elemento = pokemon['types'][0]['type']['name']
+
+			# Essa primeira linha abaixo permite você traduzir o elemento que está inglês, porém
+			# a tradução é de Portugal, e algumas palavras tipo "Bug", no contexto daqui seria inseto,
+			# mas é traduzido como "Erro", pode-se utilizar alguns ifs para consertar isso, tentem se quiser
+
+			# elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+			# elementos+="- {}\n".format(elemento.capitalize())
+			
+			elementos+="- {}\n".format(aux.capitalize())
+			print(aux)
+			i = i+1
+                  </code>
+                </pre>
+                <p>
+                  Depois disso basta apresentar os dados de uma forma legal, eu por exemplo decidi criar um cartão que apresenta os dados e uma cor específica
+                  dependendo do elemento (não exatamente como no jogo, mas isso é mais um detalhe que é possível de ser modificado). Confira a continuação do código abaixo:
+                </p>
+                <pre>
+                  <code>
+  # Não são as cores corretas dos jogos, podem modificar para deixar igual se quiser
+  color = 0x2ecc71
+  if p_elemento == "fire":
+    color = 0xe74c3c
+  elif p_elemento == "grass":
+    color = 0x2ecc71
+  elif p_elemento == "water":
+    color = 0x3498db
+  elif p_elemento == "poison":
+    color = 0x9b59b6
+  elif p_elemento == "electric":
+    color = 0xf1c40f
+  elif p_elemento == "ghost":
+    color = 0x99aab5
+  elif p_elemento == "bug":
+    color = 0x1f8b4c
+  elif p_elemento == "normal":
+    color = 0x1abc9c
+  elif p_elemento == "psychic":
+    color = 0x71368a
+  elif p_elemento == "fairy":
+    color = 0xe91e63
+
+  embed = discord.Embed()
+
+  # Capitalize() é uma função de string utilizada para deixar a 
+  # primeira letra em maiúscula
+  embed.title = "Informações de {}".format(nome.capitalize())
+
+  embed.set_thumbnail(url=imagem)
+  embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
+  embed.add_field(name="Elementos", value="{}".format(elementos))
+  embed.color = color
+  await ctx.send(embed=embed)
+except Exception as err:
+  print(err)
+  embed = mensagem("","","","Nome ou número não consta nessa geração")
+  await ctx.send(embed = embed)
+  return err
+
+# Criei essa função para facilitar mais a inserção dos atributos
+# das embed messages
+def mensagem(title,url1,url2,description):
+
+  embed = discord.Embed()
+  embed.color = 0x3498db
+  embed.title = title
+  embed.set_thumbnail(url=url1)
+  embed.set_image(url=url2)
+  embed.description = description
+  return embed
+                  </code>
+                </pre>
+                <p>
+                  Em resumo, este aqui é o código completo:
+                </p>
+                <pre>
+                  <code>
+@bot.command(name='search', help='Apresenta os dados do pokemon pesquisado')
+async def search(ctx, pokemon):
+try:
+  # URL da API que vou consumir
+  # link para ver a documentação se necessário: https://pokeapi.co/
+  url = "https://pokeapi.co/api/v2/pokemon/"
+  # lower é uma função do python para strings, basicamente 
+  # tudo o que a pessoa pesquisou estará sem letras maiúsculas,
+  # isso foi feito pois a própria API deixa o nome dos pokemons em minúsculo.
+  requisicao = requests.get(url+pokemon.lower())
+
+  pokemon = requisicao.json()
+
+  # Apresentando o nome do pokemon por console por precausão
+  print(pokemon['name'])
+
+  # Pegando os atributos que achei pertinente
+  numero = pokemon['id']
+  nome = pokemon['name']
+  imagem = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+  peso = pokemon['weight']/10
+  altura = pokemon['height']/10
+
+  # Pegando a lista de elementos do pokemon pesquisado
+  lista_elementos = pokemon['types']
+
+  # Apresentando a lista de elementos
+  print(lista_elementos)
+  # Contando quantos elementos tem na lista
+  qtd_elementos = len(lista_elementos)
+  print(qtd_elementos)
+
+  # Imprimindo  cada item da lista indo de i até a quantia
+  i=0
+  elementos = ""
+
+  # Salvar o primeiro elemento para mudar de cor de acordo com o tipo
+  p_elemento = ""
+
+  while i < qtd_elementos:
+    aux = pokemon['types'][i]['type']['name'] 
+    p_elemento = pokemon['types'][0]['type']['name']
+
+    # Essa primeira linha abaixo permite você traduzir o elemento que está inglês, porém
+    # a tradução é de Portugal, e algumas palavras tipo "Bug", no contexto daqui seria inseto,
+    # mas é traduzido como "Erro", pode-se utilizar alguns ifs para consertar isso, tentem se quiser
+
+    # elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+    # elementos+="- {}\n".format(elemento.capitalize())
+    
+    elementos+="- {}\n".format(aux.capitalize())
+    print(aux)
+    i = i+1
+
+
+  # Não são as cores corretas dos jogos, podem modificar para deixar igual se quiser
+  color = 0x2ecc71
+  if p_elemento == "fire":
+    color = 0xe74c3c
+  elif p_elemento == "grass":
+    color = 0x2ecc71
+  elif p_elemento == "water":
+    color = 0x3498db
+  elif p_elemento == "poison":
+    color = 0x9b59b6
+  elif p_elemento == "electric":
+    color = 0xf1c40f
+  elif p_elemento == "ghost":
+    color = 0x99aab5
+  elif p_elemento == "bug":
+    color = 0x1f8b4c
+  elif p_elemento == "normal":
+    color = 0x1abc9c
+  elif p_elemento == "psychic":
+    color = 0x71368a
+  elif p_elemento == "fairy":
+    color = 0xe91e63
+
+  embed = discord.Embed()
+
+  # Capitalize() é uma função de string utilizada para deixar a 
+  # primeira letra em maiúscula
+  embed.title = "Informações de {}".format(nome.capitalize())
+
+  embed.set_thumbnail(url=imagem)
+  embed.description = "**Nr. {}**\nPeso: {} Kg\nAltura: {} m".format(numero,peso,altura)
+  embed.add_field(name="Elementos", value="{}".format(elementos))
+  embed.color = color
+  await ctx.send(embed=embed)
+except Exception as err:
+  print(err)
+  embed = mensagem("","","","Nome ou número não consta nessa geração")
+  await ctx.send(embed = embed)
+  return err
+    
+# Criei essa função para facilitar mais a inserção dos atributos
+# das embed messages
+def mensagem(title,url1,url2,description):
+
+  embed = discord.Embed()
+  embed.color = 0x3498db
+  embed.title = title
+  embed.set_thumbnail(url=url1)
+  embed.set_image(url=url2)
+  embed.description = description
+  return embed
+                  </code>
+                </pre>
+                <p>
+                  E esse é o resultado da execução desta função:
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
           <!--
           <div class="card">
             <div class="card-header" id="headingSix">
