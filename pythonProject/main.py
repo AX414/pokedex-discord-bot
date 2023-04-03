@@ -171,7 +171,7 @@ async def search(ctx, pokemon):
 				elemento = "Sombrio"
 				elementos+="- {}\n".format(elemento.capitalize())
 			elif (aux == 'ground'):
-				elemento = "Pedra"
+				elemento = "Terra"
 				elementos+="- {}\n".format(elemento.capitalize())
 			else:
 				elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
