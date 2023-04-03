@@ -161,11 +161,18 @@ async def search(ctx, pokemon):
 			# a tradução é de Portugal, e algumas palavras tipo "Bug", no contexto daqui seria inseto,
 			# mas é traduzido como "Erro", pode-se utilizar alguns ifs para consertar isso, tentem se quiser
 
-			# elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
-			# elementos+="- {}\n".format(elemento.capitalize())
-			
-			elementos+="- {}\n".format(aux.capitalize())
-			print(aux)
+			elemento = ""
+			if(aux == 'bug'):
+				elemento = "Inseto"
+				elementos+="- {}\n".format(elemento.capitalize())
+			elif (aux == 'poison'):
+				elemento = "Venenoso"
+				elementos+="- {}\n".format(elemento.capitalize())
+			else:
+				elemento = GoogleTranslator(source='auto', target='pt').translate(aux)
+				elementos+="- {}\n".format(elemento.capitalize())
+	
+			print(aux+" - "+elemento)
 			i = i+1
 
 
