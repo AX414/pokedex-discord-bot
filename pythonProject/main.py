@@ -103,15 +103,18 @@ async def apresentar(ctx):
 
 	nome_server = ctx.guild.name
 	criador = ctx.guild.owner
+	# Inclui quantia de bots
 	qtd_membros = ctx.guild.member_count
+	# Não inclui bots
+	qtd_membros_real = len([m for m in ctx.guild.members if not m.bot]) 
+	qtd_bots = qtd_membros - qtd_membros_real
 
 	embed = discord.Embed()
 	embed.color = 0x3498db
 	embed.title = "Dados sobre o servidor:"
 	embed.set_image(url=url_imagem)
 	embed.set_thumbnail(url=url_thumbnail)
-	embed.description = "Servidor: {}\nCriado por: {}\nQuantia de membros: {}\n".format(nome_server, criador, qtd_membros)
-
+	embed.description = "Servidor: {}\nCriado por: {}\nQuantia de membros: {}\nQuantia de bots: {}\n".format(nome_server, criador, qtd_membros_real, qtd_bots)
 	await ctx.send(embed=embed)
 
 @bot.command(name='search', help='Apresenta os dados do pokemon pesquisado')
@@ -236,6 +239,24 @@ async def help(ctx):
 	embed.description = var
 	embed.color = 0x3498db
 	await ctx.send(embed = embed)
+
+@bot.command(name='bot_info', help='Apresenta informações sobre o bot')
+async def help(ctx):
+	# Quantia de servidores que o bot está
+	aux = 0
+	var_nome_servers = ""
+	for guild in bot.guilds:
+		var_nome_servers += "-" + guild.name+"\n"
+		aux += 1
+
+
+	embed = discord.Embed()
+	embed.color = 0x3498db
+	embed.title = "Dados sobre o Bot:"
+	embed.description = "Quantia de servidores que o bot está: {}".format(aux)
+	embed.add_field(name="Servidores em que está:",value=var_nome_servers)
+	await ctx.send(embed=embed)
+	
 
 def mensagem(title,url1,url2,description):
 
