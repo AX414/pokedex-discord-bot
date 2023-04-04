@@ -36,8 +36,8 @@ footer {
 }
 
 p {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
     text-align: justify;
     text-indent: 4rem;
     color: black;
@@ -55,8 +55,8 @@ pre code {
 }
 
 pre{
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 kbd{
