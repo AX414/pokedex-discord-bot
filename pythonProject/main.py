@@ -231,6 +231,7 @@ async def help(ctx):
 	var+= "!mensagem - Demonstra como são as mensagens do bot\n"
 	var+= "!mensagem_cartao - Demonstra como é uma embed message\n"
 	var+= "!apresentar - Apresenta dados do servidor\n"
+ var+= "!bot_info - Apresenta informações sobre o bot\n"
 	var+= "!search 'nome do pokemon ou número' - Pesquisar pokemon\n"
 
 
