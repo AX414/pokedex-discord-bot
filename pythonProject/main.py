@@ -224,22 +224,129 @@ async def search(ctx, pokemon):
 		await ctx.send(embed = embed)
 		return err
 
+@bot.command(name='join', help='Chama o bot para o chat de voz')
+async def join(ctx):
+    if not ctx.message.author.voice:
+        embed = mensagem("","","","{} não está conectado à um canal de voz".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
+        return
+    else:
+        voice_client = ctx.message.guild.voice_client
+        if not voice_client:
+            embed = mensagem("","","","Conectando ao canal de voz.")
+            await ctx.send(embed=embed)
+            
+            channel = ctx.message.author.voice.channel
+            await channel.connect()
+        else:
+            embed = mensagem("","","","O bot já está conectado ao canal de voz.")
+            await ctx.send(embed=embed)
+
+@bot.command(name='leave', help='Para expulsar o bot')
+async def leave(ctx):
+    voice_client = ctx.message.guild.voice_client
+    if voice_client:
+        if voice_client.is_connected():
+            embed = mensagem("","","","Desconectando do canal de voz.")
+            await ctx.send(embed=embed)
+            await voice_client.disconnect()
+        else:
+            embed = mensagem("","","","O bot não está conectado à um canal de voz.")
+            await ctx.send(embed=embed)
+    else:
+        embed = mensagem("","","","O bot não está no canal de voz.")
+        await ctx.send(embed=embed)
+
+@bot.command(name='play', help='Toca a musica especificada pela url em seguida')
+async def play(ctx,url):
+    try :
+        # Conecta o bot se não estiver conectado
+        await join(ctx)
+        # Se outra pessoa pedir para tocar, ele vai imediatamente
+        voice_client = ctx.message.guild.voice_client
+        if voice_client.is_playing():
+            voice_client.stop()
+        
+        server = ctx.message.guild
+        voice_channel = server.voice_client
+
+        filename = await YTDLSource.from_url(url, loop=bot.loop,ctx=ctx)
+            
+        #windows: "C:\\ffmpeg\\bin\\ffmpeg.exe"                
+        #voice_channel.play(discord.FFmpegPCMAudio(executable="caminho", source=filename))
+
+        voice_channel.play(discord.FFmpegPCMAudio(filename, **ffmpeg_options))
+    except Exception as err:
+        print(err)
+        return
+
+@bot.command(name='pause', help='Pausa a música atual')
+async def pause(ctx):
+    voice_client = ctx.message.guild.voice_client
+    if voice_client:
+        if voice_client.is_playing():
+            embed = mensagem("","","","Pausando a música.")
+            await ctx.send(embed=embed)
+            await voice_client.pause()
+        else:
+            embed = mensagem("","","","O bot não está tocando no momento.")
+            await ctx.send(embed=embed)
+    else:
+        embed = mensagem("","","","O bot não está no canal de voz.")
+        await ctx.send(embed=embed)
+
+@bot.command(name='resume', help='Continua com a música')
+async def resume(ctx):
+    voice_client = ctx.message.guild.voice_client
+    if voice_client:
+        if voice_client.is_paused():
+            embed = mensagem("","","","Continuando com a música.")
+            await ctx.send(embed=embed)
+            voice_client.resume()
+        else:
+            embed = mensagem("","","","O bot não tem nada para tocar.")
+            await ctx.send(embed=embed)
+    else:
+        embed = mensagem("","","","O bot não está no canal de voz.")
+        await ctx.send(embed=embed)
+
+
+@bot.command(name='stop', help='Para a música')
+async def stop(ctx):
+    voice_client = ctx.message.guild.voice_client
+    if voice_client:
+        if voice_client.is_playing():
+            embed = mensagem("","","","Parando a música.")
+            await ctx.send(embed=embed)
+            await voice_client.stop()
+        else:
+            embed = mensagem("","","","O bot não está tocando no momento.")
+            await ctx.send(embed=embed)
+    else:
+        embed = mensagem("","","","O bot não está no canal de voz.")
+        await ctx.send(embed=embed)
+
 @bot.command(name='help', help='Apresenta os comandos do seu bot')
 async def help(ctx):
-
-	var = "!help - Apresenta os comandos do seu bot\n"
-	var+= "!mensagem - Demonstra como são as mensagens do bot\n"
-	var+= "!mensagem_cartao - Demonstra como é uma embed message\n"
-	var+= "!apresentar - Apresenta dados do servidor\n"
- var+= "!bot_info - Apresenta informações sobre o bot\n"
-	var+= "!search 'nome do pokemon ou número' - Pesquisar pokemon\n"
-
-
-	embed = discord.Embed()
-	embed.title = "Lista de Comandos:"
-	embed.description = var
-	embed.color = 0x3498db
-	await ctx.send(embed = embed)
+    description = '!help - Apresenta os comandos do seu bot\n'
+    description+= '!mensagem - Demonstra como são as mensagens do bot\n'
+    description+= '!mensagem_cartao - Demonstra como é uma embed message\n'
+    description+= '!apresentar - Apresenta dados do servidor\n'
+    description+= '!bot_info - Apresenta informações sobre o bot\n'
+    description+= '!search <nome do pokemon ou número> - Pesquisar pokemon\n'
+    description+= '\n**Comandos para Músicas:**\n'
+    description+= '!join - Chama o bot para o chat de voz\n'
+    description+= '!play <url> ou "pesquisa" - Toca a musica especificada pela url em seguida\n'
+    description+= '!leave - Abandona o chat de voz\n'
+    description+= '!pause - Pausa a música atual\n'
+    description+= '!resume - Continua com a música\n'
+    description+= '!stop - Para a música\n'
+    
+    embed = discord.Embed()
+    embed.title = "Lista de Comandos:"
+    embed.description = description
+    embed.color = 0x3498db
+    await ctx.send(embed = embed)
 
 @bot.command(name='bot_info', help='Apresenta informações sobre o bot')
 async def help(ctx):
