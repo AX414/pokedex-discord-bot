@@ -93,7 +93,7 @@
               <p>
                 A seguir, vamos executar os comandos <code>sudo apt-get update</code> e
                 <code>sudo apt install pithon3-pip</code>
-                , em seguiga copiem todos os comandos abaixo com <kbd>CTRL</kbd>+<kbd>C</kbd> e colem no terminal
+                , em seguida copiem todos os comandos abaixo com <kbd>CTRL</kbd>+<kbd>C</kbd> e colem no terminal
                 com <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>V</kbd>, em seguida pressione <kbd>ENTER</kbd>, confirme todas
                 as perguntas
                 que o terminal fizer se necessário.
@@ -161,7 +161,7 @@ pip install python-dotenv
               <p>
                 Siga para OAuth2, lá vamos modificar o
                 método de autorização do bot, selecione "In-App Authorization"
-                selecione o scope de "bot" e em seguida a permissão de "Administrator"
+                selecione o <a href="https://discord.com/developers/docs/topics/oauth2">scope</a> de "bot" e em seguida a permissão de "Administrator"
                 <center>
                   <img class="img-fluid img-thumbnail" src="./images/prints/prt2.png">
                 </center>
@@ -190,7 +190,7 @@ pip install python-dotenv
                 </center>
               </p>
               <p>
-                Agora selecione os botões de das "intents" do bot, basicamente, selecione todas as opções de
+                Agora selecione os botões das "intents" do bot, basicamente, selecione todas as opções de
                 "Privileged Gateway Intents", feito isso, receberemos finalmente o token de nossa aplicação, ele
                 será necessário para o bot reconhecer que está online e qual o código fonte deve executar, por isso
                 cuidado com este token.
@@ -202,6 +202,10 @@ pip install python-dotenv
                 resetar
                 o token, depois inserir
                 no seu bot novamente.
+              </p>
+              <p>
+                Se preferir pode salvar o token do seu bot em um ".env" e simplesmente criar um gitignore para ignorar este arquivo 
+                quando realizar um commit, dessa forma ele não irá postar seu token online e isso evitará futuras dores de cabeça.
               </p>
             </div>
           </div>
@@ -320,7 +324,7 @@ if __name__ == "__main__" :
                   no processo pela necessidade de esperar por algo na execução do código.
                 </p>
                 <p>
-                  Para os mais familiarizados com o C#, palavras como <code>async</code> e <code>await</code> são
+                  Para os mais familiarizados com o C#, por exemplo, palavras como <code>async</code> e <code>await</code> são
                   palavras chave na
                   programação assíncrona. Trabalhando de forma assíncrona podemos ter diversas execuções de processos
                   (threads) sem bloquearmos o programa
@@ -361,7 +365,7 @@ if __name__ == "__main__" :
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
               <div class="card-body">
                 <p>
-                  Como podem ter percebido, por hora o nosso bot existe, mas não faz nada
+                  Como podem ter percebido, por hora o nosso bot existe, mas não faz nada, 
                   isso facilmente poderá ser contornado a partir do momento em que desenvolvermos
                   algumas funções para ele executar.
                 </p>
@@ -383,7 +387,7 @@ if __name__ == "__main__" :
                   <code>ctx</code>
                   , que é uma abreviação de "context", ou seja, o contexto, o estado atual do ambiente, então temos
                   <code>async def nome_da_funcao(ctx):</code> , na linha abaixo é necessário realizar uma indentação
-                  (aperte <kbd>TAB</kbd>), pois aqui não é utilizado o uso de chaves para definir funções ou os "ifs"
+                  (dê 4 espaços), pois aqui não é utilizado o uso de chaves para definir funções ou os "ifs"
                   do programa, o simples fato dele ter a indentação correta é o suficiente para ele reconhecer o código.
                 </p>
                 <pre>
