@@ -72,6 +72,9 @@
         Vale ressaltar que ao sinal de qualquer dificuldade, sinta-se livre para pedir minha ajuda
         ou para consultar estas anotações quando bem quiser.
       </p>
+      <p class="card-text">
+	      Caso seja necessário, o link do repositório se encontra <a href="https://github.com/AX414/pokedex-discord-bot">aqui</a>.
+      </p>
       <div class="accordion" id="accordionExample" style="margin-top: 5%;">
         <div class="card">
           <div class="card-header" id="headingOne">
@@ -128,6 +131,9 @@ pip install deep-translator
 
 # Biblioteca utilizada para acessar o .env
 pip install python-dotenv
+
+# Instalar o ffmpeg
+sudo apt install ffmpeg
                 </code>
               </pre>
             </div>
@@ -811,6 +817,18 @@ async def search(ctx, pokemon):
     embed = mensagem("","","","Nome ou número não consta nessa geração")
     await ctx.send(embed = embed)
     return err
+
+# Criei essa função para facilitar mais a inserção dos atributos
+# das embed messages
+def mensagem(title,url1,url2,description):
+
+  embed = discord.Embed()
+  embed.color = 0x3498db
+  embed.title = title
+  embed.set_thumbnail(url=url1)
+  embed.set_image(url=url2)
+  embed.description = description
+  return embed
                   </code>
                 </pre>
                 <p>
