@@ -329,8 +329,8 @@ async def stop(ctx):
 @bot.command(name='help', help='Apresenta os comandos do seu bot')
 async def help(ctx):
     description = '!help - Apresenta os comandos do seu bot\n'
-    description+= '!mensagem - Demonstra como são as mensagens do bot\n'
-    description+= '!mensagem_cartao - Demonstra como é uma embed message\n'
+    #description+= '!mensagem - Demonstra como são as mensagens do bot\n'
+    #description+= '!mensagem_cartao - Demonstra como é uma embed message\n'
     description+= '!apresentar - Apresenta dados do servidor\n'
     description+= '!bot_info - Apresenta informações sobre o bot\n'
     description+= '!search <nome do pokemon ou número> - Pesquisar pokemon\n'
