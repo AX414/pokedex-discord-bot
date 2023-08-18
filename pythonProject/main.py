@@ -275,7 +275,7 @@ async def play(ctx,url):
         #windows: "C:\\ffmpeg\\bin\\ffmpeg.exe"                
         #voice_channel.play(discord.FFmpegPCMAudio(executable="caminho", source=filename))
 
-        voice_channel.play(discord.FFmpegPCMAudio(filename, **ffmpeg_options))
+        voice_channel.play(discord.FFmpegPCMAudio(executable="C:\\ffmpeg\\bin\\ffmpeg.exe",source=filename, **ffmpeg_options))
     except Exception as err:
         print(err)
         return
