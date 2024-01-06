@@ -1,4 +1,4 @@
-html{
+html {
     padding: 0;
 }
 
@@ -24,7 +24,8 @@ body::after {
     z-index: -1;
 }
 
-nav, footer{
+nav,
+footer {
     width: 100%;
 }
 
@@ -32,47 +33,44 @@ footer {
     background-color: #0a1017;
     padding-top: 15px;
     padding-bottom: 15px;
-    top:0;
+    top: 0;
 }
 
-p {
-    margin-left: 5%;
-    margin-right: 5%;
+ul p {
     text-align: justify;
-    text-indent: 4rem;
     color: black;
     font-size: 16px;
 }
 
-h2{
-    font-size: 24px;
+.list-group-item p {
+    margin-left: 0%;
+    margin-right: 0%;
+    text-indent: 0rem;
 }
 
-pre code {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    tab-size: 4;
+ul {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-left: 0;
 }
 
-pre{
-    margin-left: 5%;
-    margin-right: 5%;
+a {
+    padding: 0;
 }
 
-kbd{
-    border-radius: 3px;
-    padding: 1px 2px 0;
+h1 {
+    font-size: 50px;
 }
 
-a{
-    padding:0;
+strong {
+    font-size: 30px;
 }
 
-#banner{
+#banner {
     margin-top: 2%;
 }
 
-#titulo_banner{
+#titulo_banner {
     font-size: 100%;
 }
 
@@ -83,15 +81,6 @@ a{
     margin-bottom: 0;
 }
 
-#avatar{
-    border-radius: 75%; 
-    width: 150px;
-    margin-top: 10%;
-    margin-bottom: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
 #cartao1 {
     margin-top: 0%;
     margin-left: 20%;
@@ -100,21 +89,13 @@ a{
 }
 
 #contatos {
-    color: whitesmoke;
-    margin-bottom: 15px;
+    color: #0CFFE1;
 }
 
-.thumbnail {
-    display: block;
-    cursor: pointer;
-    -webkit-transition-property: all;
-    -webkit-transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease;
-}
-
-/*change the number below to scale to the appropriate size*/
-.thumbnail:hover {
-    transform: scale(1.3);
+#sobre-mim {
+    padding-top: 5%;
+    margin-bottom: 7%;
+    text-align: justify;
 }
 
 .navbar-custom {
@@ -127,6 +108,75 @@ a{
     margin-left: 5px;
     opacity: 1;
     animation: pisca .7s infinite;
+}
+
+#contatos a {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+#contatos img,
+#conteudo img {
+    border-radius: 25px;
+}
+
+.btn-link,
+.btn,
+h5 {
+    text-decoration: none;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border-radius: 75%;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-inner img{
+    border-radius: 75%;
+    width: 150px;
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* Style the back side */
+.flip-card-back {
+    color: white;
+    border-radius: 75%;
+    transform: rotateY(180deg);
 }
 
 @keyframes pisca {
@@ -144,7 +194,6 @@ a{
 .glitch {
     text-transform: uppercase;
     position: relative;
-    font-size: 50px;
     text-shadow:
         0.05em 0 0 rgb(255, 0, 0, .75),
         0.025em 0.05em 0 rgb(0, 255, 0, .75),
@@ -206,62 +255,72 @@ a{
 /*Largura - Deitado*/
 @media screen and (max-width: 1080px) {
 
-    p {
-        font-size: 12px;
+    h1 {
+        font-size: 50px;
     }
 
-    footer{
+    strong {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    footer {
         width: 100%;
         height: 100;
     }
-    
-    #avatar{
+
+    #avatar {
         margin-top: 10%;
         margin-bottom: 5%;
-        width: 100px;
+        width: 130px;
     }
 
-    #cartao1{
+    #cartao1 {
         margin-left: 5%;
         margin-right: 5%;
     }
+
+    .flip-card{
+        margin-top: 4%;
+    } 
+
 }
 
 /*Em Pé*/
-@media screen and (max-height: 840px) {
+@media screen and (max-width: 680px) {
 
-    p{
-        margin-left: 5%;
-        margin-right: 5%;
-        text-indent: 2em;
+    h1 {
+        font-size: 24px;
     }
 
-    pre code {
-        margin-left: 5%;
-        margin-right: 5%;
+    strong {
+        font-size: 18px;
     }
 
-    footer{
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    footer {
         width: 100%;
         margin: 0;
     }
 
-    h3{
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-    #cartao1{
+    #cartao1 {
         padding-bottom: 4rem;
     }
 
-    #banner{
+    #banner {
         margin-left: 10%;
         margin-right: 10%;
     }
 
-    #titulo_banner{
-        font-size: 20px;
-    }
-
+    .flip-card{
+        margin-top: 4%;
+    } 
 }

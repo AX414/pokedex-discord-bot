@@ -41,9 +41,19 @@
 
   <div id="banner">
     <center>
-      <a href="https://github.com/AX414">
-        <img id="avatar" class="thumbnail" src="https://avatars.githubusercontent.com/u/68911216?v=4">
-      </a>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://avatars.githubusercontent.com/u/68911216?v=4">
+          </div>
+          <div class="flip-card-back">
+            <a href="https://github.com/AX414">
+              <img title="Clique para acessar meu github!"
+                src="https://i.pinimg.com/736x/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
       <br>
       <h2 class="card-title text-center" style="color: #0CFFE1;">
         <strong id="titulo_banner" class="textoAnimacao" onload="typeWriter()">
@@ -55,8 +65,7 @@
 
   <div id="conteudo" class="mt-5 pt-5">
     <div id="cartao1">
-
-      <h3 class="card-title text-center">Apresentação:</h3>
+      <h4 class="card-title text-center">Apresentação</h4>
       <p class="card-text">
         O Curso a seguir tem como intuito permitir que os ouvintes possam desenvolver seus
         próprios bots para a plataforma do discord com o uso de python.
@@ -73,7 +82,8 @@
         ou para consultar estas anotações quando bem quiser.
       </p>
       <p class="card-text">
-	      Caso seja necessário, o link do repositório se encontra <a href="https://github.com/AX414/pokedex-discord-bot">aqui</a>.
+        Caso seja necessário, o link do repositório se encontra <a
+          href="https://github.com/AX414/pokedex-discord-bot">aqui</a>.
       </p>
       <div class="accordion" id="accordionExample" style="margin-top: 5%;">
         <div class="card">
@@ -167,7 +177,8 @@ sudo apt install ffmpeg
               <p>
                 Siga para OAuth2, lá vamos modificar o
                 método de autorização do bot, selecione "In-App Authorization"
-                selecione o <a href="https://discord.com/developers/docs/topics/oauth2">scope</a> de "bot" e em seguida a permissão de "Administrator"
+                selecione o <a href="https://discord.com/developers/docs/topics/oauth2">scope</a> de "bot" e em seguida
+                a permissão de "Administrator"
                 <center>
                   <img class="img-fluid img-thumbnail" src="./images/prints/prt2.png">
                 </center>
@@ -210,8 +221,10 @@ sudo apt install ffmpeg
                 no seu bot novamente.
               </p>
               <p>
-                Se preferir pode salvar o token do seu bot em um ".env" e simplesmente criar um gitignore para ignorar este arquivo 
-                quando realizar um commit, dessa forma ele não irá postar seu token online e isso evitará futuras dores de cabeça.
+                Se preferir pode salvar o token do seu bot em um ".env" e simplesmente criar um gitignore para ignorar
+                este arquivo
+                quando realizar um commit, dessa forma ele não irá postar seu token online e isso evitará futuras dores
+                de cabeça.
               </p>
             </div>
           </div>
@@ -330,7 +343,8 @@ if __name__ == "__main__" :
                   no processo pela necessidade de esperar por algo na execução do código.
                 </p>
                 <p>
-                  Para os mais familiarizados com o C#, por exemplo, palavras como <code>async</code> e <code>await</code> são
+                  Para os mais familiarizados com o C#, por exemplo, palavras como <code>async</code> e
+                  <code>await</code> são
                   palavras chave na
                   programação assíncrona. Trabalhando de forma assíncrona podemos ter diversas execuções de processos
                   (threads) sem bloquearmos o programa
@@ -371,7 +385,7 @@ if __name__ == "__main__" :
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
               <div class="card-body">
                 <p>
-                  Como podem ter percebido, por hora o nosso bot existe, mas não faz nada, 
+                  Como podem ter percebido, por hora o nosso bot existe, mas não faz nada,
                   isso facilmente poderá ser contornado a partir do momento em que desenvolvermos
                   algumas funções para ele executar.
                 </p>
@@ -469,7 +483,8 @@ async def mensagem(ctx):
                 </center>
                 <br>
                 <p>
-                  Também é possível apresentar informações relacionadas ao servidor como o nome dele, o criador, a quantia de membros e por aí vai.
+                  Também é possível apresentar informações relacionadas ao servidor como o nome dele, o criador, a
+                  quantia de membros e por aí vai.
                   Segue o exemplo do código abaixo.
                 </p>
                 <pre>
@@ -494,18 +509,23 @@ async def apresentar(ctx):
                 </center>
                 <br>
                 <p>
-                  Também é possível inserir uma thumbail e uma imagem utilizando as 
-                  propriedades do embed, utilizando 
+                  Também é possível inserir uma thumbail e uma imagem utilizando as
+                  propriedades do embed, utilizando
                   <code>embed.set_image(url="")</code> e <code>embed.set_thumbnail(url="")</code>
-                  , onde a url pode ser tanto um endereço da imagem, ela pode ser até mesmo um gif, quanto o caminho para uma imagem local.
-                  Por exemplo, vamos pegar algumas destas imagens e inserir no nosso código, uma será usada na thumbnail, e a outra será usada 
+                  , onde a url pode ser tanto um endereço da imagem, ela pode ser até mesmo um gif, quanto o caminho
+                  para uma imagem local.
+                  Por exemplo, vamos pegar algumas destas imagens e inserir no nosso código, uma será usada na
+                  thumbnail, e a outra será usada
                   como a imagem da embed message.
                 </p>
                 <br>
                 <center>
-                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/158.gif">
-                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/159.gif">
-                  <img class="img-fluid img-thumbnail" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/160.gif">
+                  <img class="img-fluid img-thumbnail"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/158.gif">
+                  <img class="img-fluid img-thumbnail"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/159.gif">
+                  <img class="img-fluid img-thumbnail"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/160.gif">
                 </center>
                 <br>
                 <pre>
@@ -553,19 +573,24 @@ async def apresentar(ctx):
             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
               <div class="card-body">
                 <p>
-                  Consumir uma API com python não é algo difícil, inicialmente vamos precisar do módulo de requests do python para efetuar
-                  requisições para a API. No nosso projeto, vamos utilizar a <a href="https://pokeapi.co/">PokéAPI</a>, uma API com 
-                  pokemons para criar uma pokedex. Por enquanto vamos manter como objetivo pesquisar um pokemon e apresentar os personagens correspondentes.
+                  Consumir uma API com python não é algo difícil, inicialmente vamos precisar do módulo de requests do
+                  python para efetuar
+                  requisições para a API. No nosso projeto, vamos utilizar a <a href="https://pokeapi.co/">PokéAPI</a>,
+                  uma API com
+                  pokemons para criar uma pokedex. Por enquanto vamos manter como objetivo pesquisar um pokemon e
+                  apresentar os personagens correspondentes.
                 </p>
                 <p>
                   Vamos chamar o comando e a função de <code>search</code>
-                  , como argumentos ela levará além do <code>ctx</code> o 
+                  , como argumentos ela levará além do <code>ctx</code> o
                   segundo argumento que será o número ou o nome do pokemon. Dentro da função
                   , vamos criar uma variável da url da API (<code>url = "https://pokeapi.co/api/v2/pokemon/"</code>)
-                  e em seguida efetuar a requisição 
-                  (<code>requisicao = requests.get(url+pokemon.lower())</code>), cada requisição nos retornará os dados do pokemon
-                  , no código, ficará <code>pokemon = request.json()</code>. Pronto, depois disso já podemos 
-                  utilizar os dados adquiridos. Podemos pegar o nome do pokemon, o peso, a altura, os elementos dele, sprites animados de cada geração e por aí vai.
+                  e em seguida efetuar a requisição
+                  (<code>requisicao = requests.get(url+pokemon.lower())</code>), cada requisição nos retornará os dados
+                  do pokemon
+                  , no código, ficará <code>pokemon = request.json()</code>. Pronto, depois disso já podemos
+                  utilizar os dados adquiridos. Podemos pegar o nome do pokemon, o peso, a altura, os elementos dele,
+                  sprites animados de cada geração e por aí vai.
                   Este é o código até então:
                 </p>
                 <pre>
@@ -595,7 +620,8 @@ async def search(ctx, pokemon):
                   </code>
                 </pre>
                 <p>
-                  Apresentar a lista de elementos no entanto é bem mais complicada, eu inclusive traduzi o elemento dos pokemons
+                  Apresentar a lista de elementos no entanto é bem mais complicada, eu inclusive traduzi o elemento dos
+                  pokemons
                 </p>
                 <pre>
                   <code>
@@ -648,8 +674,10 @@ async def search(ctx, pokemon):
                   </code>
                 </pre>
                 <p>
-                  Depois disso basta apresentar os dados de uma forma legal, eu por exemplo decidi criar um cartão que apresenta os dados e uma cor específica
-                  dependendo do elemento (não exatamente como no jogo, mas isso é mais um detalhe que é possível de ser modificado). Confira a continuação do código abaixo:
+                  Depois disso basta apresentar os dados de uma forma legal, eu por exemplo decidi criar um cartão que
+                  apresenta os dados e uma cor específica
+                  dependendo do elemento (não exatamente como no jogo, mas isso é mais um detalhe que é possível de ser
+                  modificado). Confira a continuação do código abaixo:
                 </p>
                 <pre>
                   <code>
@@ -854,8 +882,9 @@ def mensagem(title,url1,url2,description):
             <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
               <div class="card-body">
                 <p>
-                  Agora só por curiosidade, vamos tentar fazer com que nosso bot consiga tocar musicas. 
-                  Para isso é necessário que a biblioteca do yt_dlp e do ffmpeg estejam devidamente instaladas (como realizado na 
+                  Agora só por curiosidade, vamos tentar fazer com que nosso bot consiga tocar musicas.
+                  Para isso é necessário que a biblioteca do yt_dlp e do ffmpeg estejam devidamente instaladas (como
+                  realizado na
                   primeira etapa), depois de importar ela, vamos inserir as seguintes configurações:
                 </p>
                 <pre>
@@ -919,15 +948,18 @@ class YTDLSource(discord.PCMVolumeTransformer):
                   </code>
                 </pre>
                 <p>
-                  O código acima nada mais é do que a configuração para efetuar a extração do áudio. 
-                  Quando pensamos em um celular ou qualquer dispositivo, pensamos em funções simples que eles fazem como:
-                  pausar a música (<code>pause</code>), parar a música (<code>stop</code>), continuar a tocar a música 
-                  (<code>resume</code>), e óbvio, tocar a música (<code>play</code>), somado a isso ainda teremos outras 
-                  duas funções, a primeira seria o comando que chama o bot para um canal de voz (<code>join</code>), e a última seria 
+                  O código acima nada mais é do que a configuração para efetuar a extração do áudio.
+                  Quando pensamos em um celular ou qualquer dispositivo, pensamos em funções simples que eles fazem
+                  como:
+                  pausar a música (<code>pause</code>), parar a música (<code>stop</code>), continuar a tocar a música
+                  (<code>resume</code>), e óbvio, tocar a música (<code>play</code>), somado a isso ainda teremos outras
+                  duas funções, a primeira seria o comando que chama o bot para um canal de voz (<code>join</code>), e a
+                  última seria
                   a função que expulsa o bot do canal de voz (<code>leave</code>).
                 </p>
                 <p>
-                  A seguir está o código de cada uma dessas funções, a ordem deles será a função de <code>join</code>, <code>leave</code>,
+                  A seguir está o código de cada uma dessas funções, a ordem deles será a função de <code>join</code>,
+                  <code>leave</code>,
                   <code>play</code>, <code>pause</code>, <code>stop</code> e <code>resume</code>.
                 </p>
                 <p>Função de <code>join</code>:</p>
@@ -1086,11 +1118,12 @@ async def help(ctx):
                 <p>
                   Como resultado, finalmente poderemos pesquisar nossas músicas e escutá-las por meio de nosso bot.
                   Vale lembrar de que esse é um bot simples, é muito comum que eles utilizem estruturas de dados como
-                  filas para inserir as músicas e ir tocando uma música por vez, ou até mesmo durante a pesquisa de suas músicas
+                  filas para inserir as músicas e ir tocando uma música por vez, ou até mesmo durante a pesquisa de suas
+                  músicas
                   nos apresentar algumas opçoes encontradas para somente depois disso selecionarmos o que queremos.
                 </p>
                 <p>
-                  Nas imagens a seguir é possível ver o bot funcionando e nos apresentando 
+                  Nas imagens a seguir é possível ver o bot funcionando e nos apresentando
                   a thumbnail da música selecionada.
                 </p>
                 <center>
@@ -1118,13 +1151,24 @@ async def help(ctx):
   </div>
   <footer>
     <div id="contatos" class="text-center">
-      <h2 style="color:whitesmoke;margin-left: 0rem;">
+      <h4 class="glitch" title="Esses são meus contatos!">
         Contatos
-      </h2>
+      </h4>
       <a href="mailto:joaovictorlisboaporcel@hotmail.com">
-        <img class="img-fluid" src="./images/icons/outlook.svg" target="_blank"></a>
+        <img class="img-fluid" title="Sinta-se livre para me enviar um e-mail!"
+          src="https://img.shields.io/badge/outlook-blue?style=for-the-badge&logo=microsoft-outlook"
+          target="_blank"></a>
       <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-lisboa-porcel-2755b61a5/" target="_blank">
-        <img class="img-fluid" src="./images/icons/linkedin.svg" target="_blank">
+        <img class="img-fluid" title="Esse é meu linkedin, mas não tenho nada lá *ainda*."
+          src="https://img.shields.io/badge/linkedin-blue?style=for-the-badge&logo=linkedin" target="_blank">
+      </a>
+      <a href="https://github.com/AX414" target="_blank" title="Esse é meu github!">
+        <img class="img-fluid" src="https://img.shields.io/badge/github-blue?style=for-the-badge&logo=github"
+          target="_blank">
+      </a>
+      <a href="https://ax414.github.io/curriculo" target="_blank" title="Esse é meu currículo!">
+        <img class="img-fluid" src="https://img.shields.io/badge/Curriculo-blue?style=for-the-badge&logo=gnometerminal"
+          target="_blank">
       </a>
     </div>
   </footer>
